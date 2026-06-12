@@ -18,18 +18,18 @@ export const SERVICES = [
 ];
 
 export const ACTIVITIES = [
-  { name: "Helicopter Glacier Tours", price: "$399/pp", badge: "Bucket List", img: "https://images.unsplash.com/photo-1508614589041-895b8c9d7ef5?w=800&q=80", shuttle: "$55", category: "Adventure" },
-  { name: "ATV Mountain Tours", price: "$189/pp", badge: "Adventure", img: "https://images.unsplash.com/photo-1525026198548-4baa812f1183?w=800&q=80", shuttle: "$45", category: "Adventure" },
+  { name: "Helicopter Glacier Tours", price: "$399/pp", badge: "Bucket List", img: "https://images.unsplash.com/photo-1764191616930-01ad017f4fdf?w=800&q=80", shuttle: "$55", category: "Adventure" },
+  { name: "ATV Mountain Tours", price: "$189/pp", badge: "Adventure", img: "https://images.unsplash.com/photo-1769272260986-6af5820c545e?w=800&q=80", shuttle: "$45", category: "Adventure" },
   { name: "Whistler Bungee Jumping", price: "$149/jump", badge: "Adrenaline", img: "https://images.unsplash.com/photo-1522163182402-834f871fd851?w=800&q=80", shuttle: "$45", category: "Adventure" },
-  { name: "White Water Rafting · Squamish", price: "$189/pp", badge: "Class 3-4", img: "https://images.unsplash.com/photo-1530866495561-507c9b8d9e3e?w=800&q=80", shuttle: "$55", category: "Adventure" },
-  { name: "Sea to Sky Gondola", price: "$62/adult", badge: "Must Do", img: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80", shuttle: "$65", category: "Sightseeing" },
-  { name: "Scandinave Spa", price: "from $85", badge: "Relax", img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80", shuttle: "$25", category: "Wellness" },
-  { name: "Whistler Bike Park", price: "$89/day", badge: "World #1", img: "https://images.unsplash.com/photo-1511994298241-608e28f14fde?w=800&q=80", shuttle: "$50", category: "Adventure" },
-  { name: "Joffre Lakes Hike", price: "Free + Pass", badge: "Iconic", img: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80", shuttle: "$45", category: "Hiking" },
-  { name: "Garibaldi Lake Trail", price: "Free", badge: "Glacier Lake", img: "https://images.unsplash.com/photo-1439853949127-fa647821eba0?w=800&q=80", shuttle: "$45", category: "Hiking" },
-  { name: "Via Ferrata", price: "$199/pp", badge: "Iron Way", img: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80", shuttle: "$45", category: "Adventure" },
+  { name: "White Water Rafting · Squamish", price: "$189/pp", badge: "Class 3-4", img: "https://images.unsplash.com/photo-1641584495089-5914d85d9bcc?w=800&q=80", shuttle: "$55", category: "Adventure" },
+  { name: "Sea to Sky Gondola", price: "$62/adult", badge: "Must Do", img: "https://images.unsplash.com/photo-1588702980080-66c22d9e6292?w=800&q=80", shuttle: "$65", category: "Sightseeing" },
+  { name: "Scandinave Spa", price: "from $85", badge: "Relax", img: "https://images.unsplash.com/photo-1519320993082-43a535317ddc?w=800&q=80", shuttle: "$25", category: "Wellness" },
+  { name: "Whistler Bike Park", price: "$89/day", badge: "World #1", img: "https://images.unsplash.com/photo-1663645037190-4dca6857a1b4?w=800&q=80", shuttle: "$50", category: "Adventure" },
+  { name: "Joffre Lakes Hike", price: "Free + Pass", badge: "Iconic", img: "https://images.unsplash.com/photo-1494391468241-0a4476581b78?w=800&q=80", shuttle: "$45", category: "Hiking" },
+  { name: "Garibaldi Lake Trail", price: "Free", badge: "Glacier Lake", img: "https://images.unsplash.com/photo-1725710392966-6a003a008d53?w=800&q=80", shuttle: "$45", category: "Hiking" },
+  { name: "Via Ferrata", price: "$199/pp", badge: "Iron Way", img: "https://images.unsplash.com/photo-1630353958888-5eeec80b5806?w=800&q=80", shuttle: "$45", category: "Adventure" },
   { name: "Horseback Riding · Pemberton", price: "$95/hr", badge: "Family", img: "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800&q=80", shuttle: "$55", category: "Family" },
-  { name: "Jet Skis · Alta Lake", price: "$139/hr", badge: "Summer", img: "https://images.unsplash.com/photo-1530866495561-507c9b8d9e3e?w=800&q=80", shuttle: "$25", category: "Summer" },
+  { name: "Jet Skis · Alta Lake", price: "$139/hr", badge: "Summer", img: "https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=800&q=80", shuttle: "$25", category: "Summer" },
 ];
 
 export const TRAILS = [
@@ -40,11 +40,11 @@ export const TRAILS = [
 ];
 
 export const RESTAURANTS = [
-  { name: "Araxi Restaurant + Bar", cuisine: "Farm-to-Table · Seafood", award: "Vancouver Magazine Gold List", price: "$$$", img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" },
-  { name: "Bearfoot Bistro", cuisine: "Champagne · Tasting Menu", award: "Best Champagne List Canada", price: "$$$$", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" },
-  { name: "Rimrock Cafe", cuisine: "Pacific Northwest · Game", award: "Wine Spectator Excellence", price: "$$$$", img: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" },
-  { name: "Sushi Village", cuisine: "Japanese · Since 1985", award: "Whistler's Favourite", price: "$$", img: "https://images.pexels.com/photos/17057034/pexels-photo-17057034.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { name: "Creekbread", cuisine: "Wood-Fired Pizza · Organic", award: "Best Pizza Whistler", price: "$$", img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80" },
+  { name: "Araxi Restaurant + Bar", cuisine: "Farm-to-Table · Seafood", award: "Vancouver Magazine Gold List", price: "$$$", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" },
+  { name: "Bearfoot Bistro", cuisine: "Champagne · Tasting Menu", award: "Best Champagne List Canada", price: "$$$$", img: "https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=800&q=80" },
+  { name: "Rimrock Cafe", cuisine: "Pacific Northwest · Game", award: "Wine Spectator Excellence", price: "$$$$", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80" },
+  { name: "Sushi Village", cuisine: "Japanese · Since 1985", award: "Whistler's Favourite", price: "$$", img: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80" },
+  { name: "Creekbread", cuisine: "Wood-Fired Pizza · Organic", award: "Best Pizza Whistler", price: "$$", img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80" },
 ];
 
 export const NIGHTLIFE = [
