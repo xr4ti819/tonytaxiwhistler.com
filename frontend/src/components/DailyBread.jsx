@@ -20,7 +20,7 @@ const VERSES = [
   { ref: "Ecclesiastes 3:1", text: "To everything there is a season, and a time for every purpose under heaven." },
 ];
 
-const ROTATE_MS = 25 * 60 * 1000; // 25 minutes
+const ROTATE_MS = 15 * 60 * 1000; // 15 minutes
 
 export default function DailyBread() {
   const [dismissed, setDismissed] = useState(() => {
