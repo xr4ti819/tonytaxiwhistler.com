@@ -11,6 +11,7 @@ import {
   HappyHour, Nightlife, Loyalty, Testimonials, Events, Emergency,
   FAQSection, Footer
 } from "@/components/Sections";
+import QRCodeBlock from "@/components/QRCodeBlock";
 
 function Home() {
   return (
@@ -31,6 +32,7 @@ function Home() {
         <Nightlife />
         <Testimonials />
         <Events />
+        <QRCodeBlock />
         <Emergency />
         <FAQSection />
       </main>

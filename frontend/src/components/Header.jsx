@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import { PHONE, PHONE_TEL } from "@/data";
+import LanguageSelector from "@/components/LanguageSelector";
 
 const NAV = [
   { href: "#fifa", label: "FIFA 2026" },
@@ -52,6 +53,7 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <LanguageSelector />
           <a
             href={PHONE_TEL}
             data-testid="header-call"
