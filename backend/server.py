@@ -36,7 +36,7 @@ class Booking(BaseModel):
     passengers: int = 1
     luggage: Optional[str] = None
     notes: Optional[str] = None
-    service_type: Literal["airport", "fifa", "activity", "nightlife", "local", "tour"] = "local"
+    service_type: Literal["airport", "fifa", "activity", "nightlife", "local", "tour", "designated"] = "local"
     estimated_fare: Optional[float] = None
     status: Literal["pending", "confirmed", "completed", "cancelled"] = "pending"
     created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
@@ -53,7 +53,7 @@ class BookingCreate(BaseModel):
     passengers: int = 1
     luggage: Optional[str] = None
     notes: Optional[str] = None
-    service_type: Literal["airport", "fifa", "activity", "nightlife", "local", "tour"] = "local"
+    service_type: Literal["airport", "fifa", "activity", "nightlife", "local", "tour", "designated"] = "local"
 
 
 class FareRequest(BaseModel):
@@ -142,7 +142,8 @@ async def fare_estimate(req: FareRequest):
     surcharge = 40 if req.passengers >= 5 else 0
     night_surcharge = 0
     fifa_surcharge = 50 if req.service_type == "fifa" else 0
-    total = flat + surcharge + night_surcharge + fifa_surcharge
+    designated_premium = 60 if req.service_type == "designated" else 0  # second driver fee
+    total = flat + surcharge + night_surcharge + fifa_surcharge + designated_premium
     return FareResponse(
         estimate=total,
         distance_km=km,
@@ -151,6 +152,7 @@ async def fare_estimate(req: FareRequest):
             "base_route": flat,
             "passenger_surcharge": surcharge,
             "fifa_premium": fifa_surcharge,
+            "designated_driver_premium": designated_premium,
             "currency": "CAD"
         }
     )

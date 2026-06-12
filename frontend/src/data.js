@@ -20,7 +20,7 @@ export const SERVICES = [
 export const ACTIVITIES = [
   { name: "Helicopter Glacier Tours", price: "$399/pp", badge: "Bucket List", img: "https://images.unsplash.com/photo-1764191616930-01ad017f4fdf?w=800&q=80", shuttle: "$55", category: "Adventure" },
   { name: "ATV Mountain Tours", price: "$189/pp", badge: "Adventure", img: "https://images.unsplash.com/photo-1769272260986-6af5820c545e?w=800&q=80", shuttle: "$45", category: "Adventure" },
-  { name: "Whistler Bungee Jumping", price: "$149/jump", badge: "Adrenaline", img: "https://images.unsplash.com/photo-1522163182402-834f871fd851?w=800&q=80", shuttle: "$45", category: "Adventure" },
+  { name: "Whistler Bungee Jumping", price: "$149/jump", badge: "Adrenaline", img: "https://images.unsplash.com/photo-1559677624-3c956f10d431?w=800&q=80", shuttle: "$45", category: "Adventure" },
   { name: "White Water Rafting · Squamish", price: "$189/pp", badge: "Class 3-4", img: "https://images.unsplash.com/photo-1641584495089-5914d85d9bcc?w=800&q=80", shuttle: "$55", category: "Adventure" },
   { name: "Sea to Sky Gondola", price: "$62/adult", badge: "Must Do", img: "https://images.unsplash.com/photo-1588702980080-66c22d9e6292?w=800&q=80", shuttle: "$65", category: "Sightseeing" },
   { name: "Scandinave Spa", price: "from $85", badge: "Relax", img: "https://images.unsplash.com/photo-1519320993082-43a535317ddc?w=800&q=80", shuttle: "$25", category: "Wellness" },
@@ -29,7 +29,7 @@ export const ACTIVITIES = [
   { name: "Garibaldi Lake Trail", price: "Free", badge: "Glacier Lake", img: "https://images.unsplash.com/photo-1725710392966-6a003a008d53?w=800&q=80", shuttle: "$45", category: "Hiking" },
   { name: "Via Ferrata", price: "$199/pp", badge: "Iron Way", img: "https://images.unsplash.com/photo-1630353958888-5eeec80b5806?w=800&q=80", shuttle: "$45", category: "Adventure" },
   { name: "Horseback Riding · Pemberton", price: "$95/hr", badge: "Family", img: "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800&q=80", shuttle: "$55", category: "Family" },
-  { name: "Jet Skis · Alta Lake", price: "$139/hr", badge: "Summer", img: "https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=800&q=80", shuttle: "$25", category: "Summer" },
+  { name: "Jet Skis · Alta Lake", price: "$139/hr", badge: "Summer", img: "https://images.unsplash.com/photo-1554132267-d06483b00adc?w=800&q=80", shuttle: "$25", category: "Summer" },
 ];
 
 export const TRAILS = [

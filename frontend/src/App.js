@@ -12,6 +12,8 @@ import {
   FAQSection, Footer
 } from "@/components/Sections";
 import QRCodeBlock from "@/components/QRCodeBlock";
+import DesignatedDriver from "@/components/DesignatedDriver";
+import MobileActionBar from "@/components/MobileActionBar";
 
 function useAutoRefresh(minutes = 15) {
   React.useEffect(() => {
@@ -44,6 +46,7 @@ function Home() {
       <main>
         <Hero />
         <Services />
+        <DesignatedDriver />
         <FareCalculator />
         <FIFASection />
         <BookingForm />
@@ -62,6 +65,7 @@ function Home() {
       </main>
       <Footer />
       <FloatingCTAs />
+      <MobileActionBar />
     </div>
   );
 }

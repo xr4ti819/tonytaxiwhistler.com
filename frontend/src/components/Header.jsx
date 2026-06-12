@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import { PHONE, PHONE_TEL } from "@/data";
 import LanguageSelector from "@/components/LanguageSelector";
+import QRBadge from "@/components/QRBadge";
 
 const NAV = [
   { href: "#fifa", label: "FIFA 2026" },
   { href: "#book", label: "Book" },
+  { href: "#dd", label: "DD Service" },
   { href: "#activities", label: "Activities" },
   { href: "#dining", label: "Dining" },
   { href: "#nightlife", label: "Nightlife" },
@@ -52,7 +54,8 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <QRBadge />
           <LanguageSelector />
           <a
             href={PHONE_TEL}

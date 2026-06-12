@@ -9,6 +9,7 @@ const SERVICE_TYPES = [
   { v: "local", label: "Local · Around Whistler" },
   { v: "airport", label: "Airport · YVR Transfer" },
   { v: "fifa", label: "FIFA 2026 · BC Place" },
+  { v: "designated", label: "Designated Driver · You + Your Car" },
   { v: "activity", label: "Activity · Trailhead / Tour" },
   { v: "nightlife", label: "Nightlife · Safe Ride Home" },
   { v: "tour", label: "Custom Tour · Multi-Stop" },

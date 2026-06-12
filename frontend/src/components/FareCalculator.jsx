@@ -10,6 +10,7 @@ const SERVICE_TYPES = [
   { v: "local", label: "Standard" },
   { v: "airport", label: "Airport" },
   { v: "fifa", label: "FIFA Match Day" },
+  { v: "designated", label: "Designated Driver" },
   { v: "activity", label: "Trailhead / Tour" },
   { v: "nightlife", label: "Late Night" },
 ];
@@ -217,6 +218,9 @@ export default function FareCalculator() {
                   )}
                   {result.breakdown.fifa_premium > 0 && (
                     <Row label="FIFA match day" value={`+$${result.breakdown.fifa_premium}`} highlight />
+                  )}
+                  {result.breakdown.designated_driver_premium > 0 && (
+                    <Row label="2nd driver (DD)" value={`+$${result.breakdown.designated_driver_premium}`} highlight />
                   )}
                   <div className="h-px bg-white/5 my-2" />
                   <Row label="Total" value={`$${result.estimate}`} bold />

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Phone, Trophy, Plane, Moon, Mountain, Star, Check, Award, Quote } from "lucide-react";
+import { Phone, Trophy, Plane, Moon, Mountain, Star, Check, Award, Quote, ShieldCheck } from "lucide-react";
 import {
   PHONE, PHONE_TEL, FIFA_MATCHES, SERVICES, ACTIVITIES, TRAILS, RESTAURANTS,
   NIGHTLIFE, HAPPY_HOUR, EVENTS_2026, EMERGENCY, FAQ
@@ -8,14 +8,14 @@ import {
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
-const ICON = { Plane, Trophy, Mountain, Moon };
+const ICON = { Plane, Trophy, Mountain, Moon, ShieldCheck };
 
 export function Services() {
   return (
     <section className="py-20 px-5" data-testid="services-section">
       <div className="max-w-7xl mx-auto">
         <SectionHeading kicker="What We Do" title={<>One number. <span className="italic gold-gradient-text">Every kind of ride.</span></>} />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5 mt-12">
           {SERVICES.map((s, i) => {
             const Icon = ICON[s.icon] || Plane;
             return (

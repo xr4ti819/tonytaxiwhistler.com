@@ -4,7 +4,7 @@ import { PHONE_TEL, PHONE_SMS, WHATSAPP } from "@/data";
 
 export default function FloatingCTAs() {
   return (
-    <div className="fixed right-4 bottom-4 z-[80] flex flex-col gap-3 items-end" data-testid="floating-ctas">
+    <div className="hidden lg:flex fixed right-4 bottom-4 z-[80] flex-col gap-3 items-end" data-testid="floating-ctas">
       <a
         href={WHATSAPP}
         target="_blank"
