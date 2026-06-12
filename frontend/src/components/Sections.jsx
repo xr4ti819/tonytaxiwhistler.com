@@ -19,12 +19,20 @@ export function Services() {
           {SERVICES.map((s, i) => {
             const Icon = ICON[s.icon] || Plane;
             return (
-              <div key={s.title} data-testid={`service-${i}`} className="group bg-surface border border-white/5 rounded-2xl p-6 hover:border-gold/40 hover:-translate-y-1 transition-all">
-                <Icon className="w-7 h-7 text-gold mb-4" strokeWidth={1.5} />
-                <h3 className="font-serif text-xl font-bold mb-2">{s.title}</h3>
-                <p className="text-sm text-white/60 mb-4">{s.desc}</p>
-                <div className="text-gold text-sm font-medium">{s.price} →</div>
-              </div>
+              <article key={s.title} data-testid={`service-${i}`} className="group bg-surface border border-white/5 rounded-2xl overflow-hidden hover:border-gold/40 hover:-translate-y-1 transition-all">
+                <div className="relative h-32 overflow-hidden">
+                  <img src={s.img} alt={s.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent" />
+                  <div className="absolute bottom-2 left-3 w-10 h-10 rounded-xl glass border border-gold/30 flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-gold" strokeWidth={1.5} />
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h3 className="font-serif text-lg font-bold mb-2 leading-tight">{s.title}</h3>
+                  <p className="text-xs text-white/60 mb-3">{s.desc}</p>
+                  <div className="text-gold text-sm font-medium">{s.price} →</div>
+                </div>
+              </article>
             );
           })}
         </div>

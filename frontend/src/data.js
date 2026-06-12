@@ -22,11 +22,11 @@ export const LAKES_RIVERS = [
 ];
 
 export const SERVICES = [
-  { title: "Airport Transfers", desc: "YVR ↔ Whistler · 2hrs door-to-door · Flight tracked", price: "from $299", icon: "Plane" },
-  { title: "FIFA 2026", desc: "Whistler ↔ BC Place · Match day premium · Pre-book now", price: "from $349", icon: "Trophy" },
-  { title: "Designated Driver", desc: "Two drivers come. We drive YOU & YOUR CAR home.", price: "from $89", icon: "ShieldCheck" },
-  { title: "Activities & Tours", desc: "Heli, ATV, rafting, hiking trailheads & more", price: "from $25", icon: "Mountain" },
-  { title: "Nightlife & Safe Ride", desc: "24/7 pickup from any bar · Group rates", price: "from $25", icon: "Moon" },
+  { title: "Airport Transfers", desc: "YVR ↔ Whistler · 2hrs door-to-door · Flight tracked", price: "from $299", icon: "Plane", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80" },
+  { title: "FIFA 2026", desc: "Whistler ↔ BC Place · Match day premium · Pre-book now", price: "from $349", icon: "Trophy", img: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800&q=80" },
+  { title: "Designated Driver", desc: "Two drivers come. We drive YOU & YOUR CAR home.", price: "from $89", icon: "ShieldCheck", img: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80" },
+  { title: "Activities & Tours", desc: "Heli, ATV, rafting, hiking trailheads & more", price: "from $25", icon: "Mountain", img: "https://images.unsplash.com/photo-1764191616930-01ad017f4fdf?w=800&q=80" },
+  { title: "Nightlife & Safe Ride", desc: "24/7 pickup from any bar · Group rates", price: "from $25", icon: "Moon", img: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
 ];
 
 export const ACTIVITIES = [
