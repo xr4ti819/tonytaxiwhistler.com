@@ -13,7 +13,31 @@ import {
 } from "@/components/Sections";
 import QRCodeBlock from "@/components/QRCodeBlock";
 
+function useAutoRefresh(minutes = 15) {
+  React.useEffect(() => {
+    const ms = minutes * 60 * 1000;
+    let lastActivity = Date.now();
+    const bump = () => { lastActivity = Date.now(); };
+    ["mousemove", "keydown", "scroll", "touchstart", "click"].forEach((e) =>
+      window.addEventListener(e, bump, { passive: true })
+    );
+    const id = setInterval(() => {
+      if (document.hidden) return; // skip while tab hidden
+      const idleFor = Date.now() - lastActivity;
+      // Only reload if user has been idle ≥ 60s, to avoid interrupting a booking
+      if (idleFor >= 60 * 1000) window.location.reload();
+    }, ms);
+    return () => {
+      clearInterval(id);
+      ["mousemove", "keydown", "scroll", "touchstart", "click"].forEach((e) =>
+        window.removeEventListener(e, bump)
+      );
+    };
+  }, [minutes]);
+}
+
 function Home() {
+  useAutoRefresh(15);
   return (
     <div className="min-h-screen bg-background text-foreground antialiased">
       <Header />
