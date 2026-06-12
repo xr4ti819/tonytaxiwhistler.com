@@ -6,7 +6,7 @@ export default function MobileActionBar() {
   return (
     <div
       data-testid="mobile-action-bar"
-      className="lg:hidden fixed bottom-0 left-0 right-0 z-[75] glass border-t border-white/10 px-3 py-2 grid grid-cols-3 gap-2"
+      className="lg:hidden fixed bottom-0 left-0 right-0 z-[75] glass border-t border-white/10 px-3 py-2 grid grid-cols-3 gap-2 max-w-full overflow-hidden"
       style={{ paddingBottom: "calc(0.5rem + env(safe-area-inset-bottom, 0px))" }}
     >
       <a

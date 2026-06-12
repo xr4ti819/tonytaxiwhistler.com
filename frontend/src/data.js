@@ -24,6 +24,7 @@ export const LAKES_RIVERS = [
 export const SERVICES = [
   { title: "Airport Transfers", desc: "YVR ↔ Whistler · 2hrs door-to-door · Flight tracked", price: "from $299", icon: "Plane" },
   { title: "FIFA 2026", desc: "Whistler ↔ BC Place · Match day premium · Pre-book now", price: "from $349", icon: "Trophy" },
+  { title: "Designated Driver", desc: "Two drivers come. We drive YOU & YOUR CAR home.", price: "from $89", icon: "ShieldCheck" },
   { title: "Activities & Tours", desc: "Heli, ATV, rafting, hiking trailheads & more", price: "from $25", icon: "Mountain" },
   { title: "Nightlife & Safe Ride", desc: "24/7 pickup from any bar · Group rates", price: "from $25", icon: "Moon" },
 ];
