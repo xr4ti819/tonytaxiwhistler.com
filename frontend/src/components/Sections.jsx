@@ -174,24 +174,31 @@ export function Activities() {
 export function Trails() {
   return (
     <section className="py-20 px-5" data-testid="trails-section">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <SectionHeading kicker="Alpine Trails" title={<>Drop us at the trailhead. <span className="italic gold-gradient-text">$45 covers four.</span></>} />
-        <div className="grid sm:grid-cols-2 gap-4 mt-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
           {TRAILS.map((t, i) => (
-            <div key={t.name} data-testid={`trail-${i}`} className="bg-surface border border-white/5 rounded-2xl p-5 hover:border-gold/30 transition-colors">
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="font-serif text-xl font-bold">{t.name}</h3>
-                <span className={`text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider ${
-                  t.level === "Expert" ? "bg-emergency/20 text-emergency" :
-                  t.level === "Hard" ? "bg-fifa/20 text-fifa" : "bg-gold/20 text-gold"
+            <article key={t.name} data-testid={`trail-${i}`} className="group bg-surface border border-white/5 rounded-2xl overflow-hidden hover:border-gold/40 hover:-translate-y-1 transition-all">
+              <div className="relative h-48 overflow-hidden">
+                <img src={t.img} alt={t.name} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/30 to-transparent" />
+                <span className={`absolute top-3 right-3 text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider font-bold backdrop-blur bg-black/60 border ${
+                  t.level === "Expert" ? "border-emergency/50 text-emergency" :
+                  t.level === "Hard" ? "border-fifa/50 text-fifa" : "border-gold/50 text-gold"
                 }`}>{t.level}</span>
               </div>
-              <div className="grid grid-cols-3 gap-2 text-xs text-white/60">
-                <div><div className="text-white">{t.dist}</div><div className="uppercase tracking-wider">Distance</div></div>
-                <div><div className="text-white">{t.elev}</div><div className="uppercase tracking-wider">Elevation</div></div>
-                <div><div className="text-white">{t.time}</div><div className="uppercase tracking-wider">Time</div></div>
+              <div className="p-5">
+                <h3 className="font-serif text-xl font-bold mb-3">{t.name}</h3>
+                <div className="grid grid-cols-3 gap-2 text-xs text-white/60">
+                  <div><div className="text-white font-medium">{t.dist}</div><div className="uppercase tracking-wider text-[10px] text-white/40">Distance</div></div>
+                  <div><div className="text-white font-medium">{t.elev}</div><div className="uppercase tracking-wider text-[10px] text-white/40">Elevation</div></div>
+                  <div><div className="text-white font-medium">{t.time}</div><div className="uppercase tracking-wider text-[10px] text-white/40">Time</div></div>
+                </div>
+                <a href={PHONE_TEL} className="mt-4 inline-flex items-center text-xs text-gold hover:underline font-medium" data-testid={`trail-shuttle-${i}`}>
+                  Shuttle $45 (up to 4) →
+                </a>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

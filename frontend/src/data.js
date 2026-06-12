@@ -45,10 +45,10 @@ export const ACTIVITIES = [
 ];
 
 export const TRAILS = [
-  { name: "Rainbow Lake", level: "Intermediate", dist: "16km", elev: "600m", time: "6 hrs" },
-  { name: "Garibaldi Lake", level: "Hard", dist: "18km", elev: "820m", time: "5–6 hrs" },
-  { name: "Joffre Lakes", level: "Hard", dist: "10km", elev: "400m", time: "4–5 hrs" },
-  { name: "Wedgemount Lake", level: "Expert", dist: "12km", elev: "1,160m", time: "6–7 hrs" },
+  { name: "Rainbow Lake", level: "Intermediate", dist: "16km", elev: "600m", time: "6 hrs", img: "https://images.unsplash.com/photo-1567647753830-de3fe7ce9f28?w=800&q=80" },
+  { name: "Garibaldi Lake", level: "Hard", dist: "18km", elev: "820m", time: "5–6 hrs", img: "https://images.unsplash.com/photo-1725710392966-6a003a008d53?w=800&q=80" },
+  { name: "Joffre Lakes", level: "Hard", dist: "10km", elev: "400m", time: "4–5 hrs", img: "https://images.unsplash.com/photo-1623423415485-1d36867376b6?w=800&q=80" },
+  { name: "Wedgemount Lake", level: "Expert", dist: "12km", elev: "1,160m", time: "6–7 hrs", img: "https://images.unsplash.com/photo-1494391468241-0a4476581b78?w=800&q=80" },
 ];
 
 export const RESTAURANTS = [
