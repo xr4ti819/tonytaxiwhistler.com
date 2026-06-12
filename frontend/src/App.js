@@ -16,6 +16,8 @@ import DesignatedDriver from "@/components/DesignatedDriver";
 import MobileActionBar from "@/components/MobileActionBar";
 import MusicWidget from "@/components/MusicWidget";
 import DailyBread from "@/components/DailyBread";
+import LiveConditions from "@/components/LiveConditions";
+import CommunityRec from "@/components/CommunityRec";
 
 function useAutoRefresh(minutes = 15) {
   React.useEffect(() => {
@@ -48,6 +50,7 @@ function Home() {
       <Header />
       <main>
         <Hero />
+        <LiveConditions />
         <Services />
         <DesignatedDriver />
         <FareCalculator />
@@ -58,6 +61,7 @@ function Home() {
         <Trails />
         <Loyalty />
         <Dining />
+        <CommunityRec />
         <HappyHour />
         <Nightlife />
         <Testimonials />

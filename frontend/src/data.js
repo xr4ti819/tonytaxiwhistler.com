@@ -43,8 +43,53 @@ export const RESTAURANTS = [
   { name: "Araxi Restaurant + Bar", cuisine: "Farm-to-Table · Seafood", award: "Vancouver Magazine Gold List", price: "$$$", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" },
   { name: "Bearfoot Bistro", cuisine: "Champagne · Tasting Menu", award: "Best Champagne List Canada", price: "$$$$", img: "https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=800&q=80" },
   { name: "Rimrock Cafe", cuisine: "Pacific Northwest · Game", award: "Wine Spectator Excellence", price: "$$$$", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80" },
+  { name: "Wild Blue Restaurant + Bar", cuisine: "Seafood · The Listel", award: "Best New Restaurant 2023", price: "$$$$", img: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" },
+  { name: "Aura at Nita Lake Lodge", cuisine: "West Coast · Lakeside", award: "Wine Spectator Award", price: "$$$", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" },
+  { name: "The Keg Steakhouse", cuisine: "Steakhouse · Whistler Village", award: "Whistler Classic", price: "$$$", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80" },
+  { name: "Red Door Bistro", cuisine: "French Bistro · Marketplace", award: "Local Favourite", price: "$$$", img: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" },
+  { name: "Bar Oso", cuisine: "Spanish · Tapas · Wine", award: "Best Bar Whistler", price: "$$$", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" },
+  { name: "La Bocca", cuisine: "Modern Italian · Village Square", award: "Vancouver Mag · 2 stars", price: "$$$", img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80" },
+  { name: "Stinky's on the Stroll", cuisine: "Comfort Food · Late Night", award: "Best Comfort Food", price: "$$", img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80" },
+  { name: "Black's Pub & Restaurant", cuisine: "Pub · Burgers · 99 Beers on Tap", award: "Whistler Heritage Spot", price: "$$", img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&q=80" },
+  { name: "Hunter Gather", cuisine: "BBQ · Smokehouse · Cocktails", award: "Best BBQ Sea-to-Sky", price: "$$", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80" },
+  { name: "Beacon Pub & Eatery", cuisine: "Gastropub · Chef Adrian Beaty", award: "Best Gastropub 2024", price: "$$$", img: "https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=800&q=80" },
   { name: "Sushi Village", cuisine: "Japanese · Since 1985", award: "Whistler's Favourite", price: "$$", img: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80" },
   { name: "Creekbread", cuisine: "Wood-Fired Pizza · Organic", award: "Best Pizza Whistler", price: "$$", img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80" },
+];
+
+export const COMMUNITY_SERVICES = [
+  {
+    name: "Meadow Park Sports Centre",
+    desc: "25m pool, hot tub, sauna, ice rink, gym, squash, fitness classes. The Whistler local's gym.",
+    address: "8625 Hwy 99, Whistler",
+    link: "https://www.whistler.ca/services/recreation/meadow-park-sports-centre",
+    shuttle: "$25",
+    tag: "Recreation",
+  },
+  {
+    name: "Whistler Community Services Society (WCSS)",
+    desc: "Outreach · food bank · mental health · youth & family programs · the heart of Whistler's community.",
+    address: "Nesters Square, Whistler",
+    link: "https://mywcss.org/",
+    shuttle: "Free for clients",
+    tag: "Community Support",
+  },
+  {
+    name: "Whistler Public Library",
+    desc: "Modern community library · free WiFi · children's programs · mountain views.",
+    address: "4329 Main St, Whistler",
+    link: "https://www.whistlerlibrary.ca/",
+    shuttle: "$15",
+    tag: "Free",
+  },
+  {
+    name: "Whistler Health Care Centre",
+    desc: "Walk-in clinic, urgent care, x-ray on site. Open daily.",
+    address: "4380 Lorimer Rd",
+    link: "tel:6049324911",
+    shuttle: "Priority dispatch",
+    tag: "Medical",
+  },
 ];
 
 export const NIGHTLIFE = [
