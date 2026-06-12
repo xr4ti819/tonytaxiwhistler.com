@@ -144,7 +144,7 @@ export const EVENTS_2026 = [
   { name: "IRONMAN Canada", when: "Jul 26", tag: "Triathlon", img: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&q=80" },
   { name: "GranFondo", when: "Sep 12", tag: "Cycling", img: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=800&q=80" },
   { name: "Cornucopia Festival", when: "Nov 5 – 15", tag: "Food & Wine", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" },
-  { name: "Tough Mudder", when: "Jun 20 – 21", tag: "Obstacle Race", img: "https://images.unsplash.com/photo-1558618047-f4b511ba5ad8?w=800&q=80" },
+  { name: "Tough Mudder", when: "Jun 20 – 21", tag: "Obstacle Race", img: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&q=80" },
   { name: "WSSF · Snow & Ski Festival", when: "Apr 10 – 19", tag: "Snow Sports", img: "https://images.unsplash.com/photo-1551524559-8af4e6624178?w=800&q=80" },
 ];
 

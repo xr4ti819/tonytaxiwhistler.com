@@ -65,7 +65,14 @@ export default function MusicWidget() {
               <X className="w-3.5 h-3.5" />
             </button>
           </div>
-          <div className="text-xs text-white font-medium mb-3 truncate" title={TRACKS[trackIdx].title}>
+          <div className="text-xs text-white font-medium mb-3 truncate flex items-center gap-2" title={TRACKS[trackIdx].title}>
+            <span className="inline-flex gap-0.5 items-end h-3">
+              <span className={`w-0.5 bg-fifa rounded-sm ${playing ? "animate-pulse" : ""}`} style={{ height: "30%" }} />
+              <span className={`w-0.5 bg-fifa rounded-sm ${playing ? "animate-pulse" : ""}`} style={{ height: "60%", animationDelay: "0.15s" }} />
+              <span className={`w-0.5 bg-fifa rounded-sm ${playing ? "animate-pulse" : ""}`} style={{ height: "100%", animationDelay: "0.3s" }} />
+              <span className={`w-0.5 bg-fifa rounded-sm ${playing ? "animate-pulse" : ""}`} style={{ height: "60%", animationDelay: "0.45s" }} />
+              <span className={`w-0.5 bg-fifa rounded-sm ${playing ? "animate-pulse" : ""}`} style={{ height: "30%", animationDelay: "0.6s" }} />
+            </span>
             {TRACKS[trackIdx].title}
           </div>
           <div className="flex items-center gap-2">
