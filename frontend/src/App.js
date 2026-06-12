@@ -14,6 +14,8 @@ import {
 import QRCodeBlock from "@/components/QRCodeBlock";
 import DesignatedDriver from "@/components/DesignatedDriver";
 import MobileActionBar from "@/components/MobileActionBar";
+import MusicWidget from "@/components/MusicWidget";
+import DailyBread from "@/components/DailyBread";
 
 function useAutoRefresh(minutes = 15) {
   React.useEffect(() => {
@@ -66,6 +68,8 @@ function Home() {
       <Footer />
       <FloatingCTAs />
       <MobileActionBar />
+      <MusicWidget />
+      <DailyBread />
     </div>
   );
 }

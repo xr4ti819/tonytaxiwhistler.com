@@ -37,7 +37,9 @@ export default function Header() {
           <div className="w-9 h-9 rounded-lg gold-foil flex items-center justify-center font-serif text-lg font-black">T</div>
           <div className="leading-none">
             <div className="font-serif text-lg font-bold tracking-tight">Tony Taxi</div>
-            <div className="text-[10px] uppercase tracking-[0.2em] text-gold">Whistler</div>
+            <div className="text-[10px] uppercase tracking-[0.2em] text-gold flex items-center gap-1">
+              Whistler <span className="text-emergency" aria-hidden="true">🍁</span>
+            </div>
           </div>
         </a>
 

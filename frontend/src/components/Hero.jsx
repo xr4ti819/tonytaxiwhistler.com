@@ -38,6 +38,8 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass mb-6" data-testid="hero-badge">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-xs uppercase tracking-[0.3em] text-white/80">24/7 · Dispatching Now</span>
+            <span className="w-px h-3 bg-white/15 mx-1" />
+            <span className="text-xs tracking-wider text-fifa font-semibold">🇨🇦 FIFA 2026</span>
           </div>
 
           <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tighter mb-6">
