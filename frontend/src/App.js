@@ -46,8 +46,8 @@ function Home() {
   useAutoRefresh(15);
   return (
     <div className="min-h-screen bg-background text-foreground antialiased">
-      <DailyBread />
       <Header />
+      <DailyBread />
       <main>
         <Hero />
         <LiveConditions />

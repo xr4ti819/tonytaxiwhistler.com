@@ -240,14 +240,18 @@ export function Nightlife() {
         <SectionHeading kicker="After Dark" title={<>From apres-ski to <span className="italic gold-gradient-text">3 AM.</span></>} />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
           {NIGHTLIFE.map((n, i) => (
-            <div key={n.name} data-testid={`night-${i}`} className="bg-surface border border-white/5 rounded-2xl p-6 hover:border-gold/30 transition-all">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="font-serif text-xl font-bold">{n.name}</h3>
-                <span className="text-[10px] uppercase tracking-wider text-gold">{n.type}</span>
+            <article key={n.name} data-testid={`night-${i}`} className="group bg-surface border border-white/5 rounded-2xl overflow-hidden hover:border-gold/30 transition-all">
+              <div className="relative h-44 overflow-hidden">
+                <img src={n.img} alt={n.name} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/50 to-transparent" />
+                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur text-[10px] uppercase tracking-wider text-gold border border-gold/30">{n.type}</span>
+                <span className="absolute top-3 right-3 px-2 py-1 rounded-md bg-black/60 backdrop-blur text-[10px] text-white/80 tabular-nums">{n.hours}</span>
               </div>
-              <p className="text-xs text-white/40 mb-3">{n.hours}</p>
-              <p className="text-sm text-white/70">{n.desc}</p>
-            </div>
+              <div className="p-5">
+                <h3 className="font-serif text-xl font-bold mb-2">{n.name}</h3>
+                <p className="text-sm text-white/70">{n.desc}</p>
+              </div>
+            </article>
           ))}
         </div>
       </div>

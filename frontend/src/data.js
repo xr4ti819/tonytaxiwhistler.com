@@ -59,6 +59,14 @@ export const RESTAURANTS = [
 
 export const COMMUNITY_SERVICES = [
   {
+    name: "Whistler Community Church",
+    desc: "Sunday Services · 10:00 AM (English) · 11:30 AM (Português) · Family worship · Coffee & connect after every service.",
+    address: "7445 Fitzsimmons Rd, Whistler",
+    link: "https://whistlerchurch.com/",
+    shuttle: "Free for seniors Sundays",
+    tag: "Faith",
+  },
+  {
     name: "Meadow Park Sports Centre",
     desc: "25m pool, hot tub, sauna, ice rink, gym, squash, fitness classes. The Whistler local's gym.",
     address: "8625 Hwy 99, Whistler",
@@ -93,12 +101,12 @@ export const COMMUNITY_SERVICES = [
 ];
 
 export const NIGHTLIFE = [
-  { name: "Garfinkel's", type: "Club", hours: "3PM–2AM", desc: "Live DJ · Dance floor · Apres-ski hotspot" },
-  { name: "Tommy Africa's", type: "Underground Club", hours: "10PM–3AM", desc: "Hip-hop & electronic · Late-night" },
-  { name: "Dusty's Bar & BBQ", type: "Apres-Ski", hours: "Since 1965", desc: "Live music · BBQ · Patio · Creekside" },
-  { name: "The Mallard Lounge", type: "Lounge", hours: "Evenings", desc: "Upscale cocktails · Fireplace · Piano" },
-  { name: "Merlin's Bar", type: "Pub", hours: "Apres-ski", desc: "Pool tables · Burgers & beers" },
-  { name: "Buffalo Bills", type: "Club", hours: "9PM–3AM", desc: "Iconic Whistler · Theme nights · 21+" },
+  { name: "Garfinkel's", type: "Club", hours: "3PM–2AM", desc: "Live DJ · Dance floor · Apres-ski hotspot", img: "https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?w=800&q=80" },
+  { name: "Tommy Africa's", type: "Underground Club", hours: "10PM–3AM", desc: "Hip-hop & electronic · Late-night", img: "https://images.unsplash.com/photo-1571266028243-d220bc1d2c79?w=800&q=80" },
+  { name: "Dusty's Bar & BBQ", type: "Apres-Ski", hours: "Since 1965", desc: "Live music · BBQ · Patio · Creekside", img: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
+  { name: "The Mallard Lounge", type: "Lounge", hours: "Evenings", desc: "Upscale cocktails · Fireplace · Piano", img: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" },
+  { name: "Merlin's Bar", type: "Pub", hours: "Apres-ski", desc: "Pool tables · Burgers & beers", img: "https://images.unsplash.com/photo-1518176258769-f227c798150e?w=800&q=80" },
+  { name: "Buffalo Bills", type: "Club", hours: "9PM–3AM", desc: "Iconic Whistler · Theme nights · 21+", img: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
 ];
 
 export const HAPPY_HOUR = [
