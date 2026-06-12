@@ -23,18 +23,26 @@ export default function DesignatedDriver() {
         {/* How it works steps */}
         <div className="grid sm:grid-cols-3 gap-5 mb-12">
           {[
-            { n: 1, t: "Call us", d: `Dial ${PHONE} or hit Book. Tell us where you are.`, Icon: Phone },
-            { n: 2, t: "Two drivers arrive", d: "One takes the wheel of your car with you in the passenger seat. The other follows in a Tony Taxi.", Icon: Users },
-            { n: 3, t: "Both home, safe", d: "We drop you and your vehicle at your door. We drive off. You sleep easy.", Icon: Car },
+            { n: 1, t: "Call us", d: `Dial ${PHONE} or hit Book. Tell us where you are.`, Icon: Phone, img: "https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?w=800&q=80" },
+            { n: 2, t: "Two drivers arrive", d: "One takes the wheel of your car with you in the passenger seat. The other follows in a Tony Taxi.", Icon: Users, img: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80" },
+            { n: 3, t: "Both home, safe", d: "We drop you and your vehicle at your door. We drive off. You sleep easy.", Icon: Car, img: "https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=800&q=80" },
           ].map((s) => (
-            <div key={s.n} data-testid={`dd-step-${s.n}`} className="bg-surface border border-white/5 rounded-2xl p-6 relative">
-              <div className="absolute -top-3 -left-3 w-9 h-9 rounded-full gold-foil flex items-center justify-center font-serif font-black text-sm">
-                {s.n}
+            <article key={s.n} data-testid={`dd-step-${s.n}`} className="group bg-surface border border-white/5 rounded-2xl overflow-hidden relative hover:border-emerald-400/30 transition-all">
+              <div className="relative h-40 overflow-hidden">
+                <img src={s.img} alt={s.t} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/30 to-transparent" />
+                <div className="absolute top-3 left-3 w-9 h-9 rounded-full gold-foil flex items-center justify-center font-serif font-black text-sm shadow-lg">
+                  {s.n}
+                </div>
+                <div className="absolute bottom-3 left-3 w-10 h-10 rounded-xl glass border border-emerald-400/30 flex items-center justify-center">
+                  <s.Icon className="w-5 h-5 text-emerald-300" strokeWidth={1.5} />
+                </div>
               </div>
-              <s.Icon className="w-7 h-7 text-gold mb-3 mt-2" strokeWidth={1.5} />
-              <h3 className="font-serif text-xl font-bold mb-2">{s.t}</h3>
-              <p className="text-sm text-white/60">{s.d}</p>
-            </div>
+              <div className="p-5">
+                <h3 className="font-serif text-xl font-bold mb-2">{s.t}</h3>
+                <p className="text-sm text-white/60">{s.d}</p>
+              </div>
+            </article>
           ))}
         </div>
 
