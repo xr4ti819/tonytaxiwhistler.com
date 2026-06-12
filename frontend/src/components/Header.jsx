@@ -28,7 +28,7 @@ export default function Header() {
   return (
     <header
       data-testid="site-header"
-      className={`fixed top-0 left-0 right-0 z-[70] transition-all duration-300 ${
+      className={`sticky top-0 left-0 right-0 z-[70] transition-all duration-300 ${
         scrolled ? "glass py-3" : "py-5 bg-transparent"
       }`}
     >

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BookOpen, X } from "lucide-react";
 
-// Curated inspirational verses + reflections (Our Daily Bread style)
 const VERSES = [
   { ref: "Proverbs 3:5–6", text: "Trust in the Lord with all your heart, and lean not on your own understanding; in all your ways acknowledge Him, and He shall direct your paths." },
   { ref: "Philippians 4:13", text: "I can do all things through Christ who strengthens me." },
@@ -52,27 +51,28 @@ export default function DailyBread() {
 
   return (
     <div
-      data-testid="daily-bread"
-      className={`hidden md:block fixed top-24 left-4 z-[55] max-w-xs transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}
+      data-testid="daily-bread-banner"
+      className="w-full bg-gradient-to-r from-gold/15 via-gold/5 to-gold/15 border-b border-gold/20 relative z-[71]"
     >
-      <div className="glass rounded-2xl border border-gold/20 p-4 shadow-2xl">
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center gap-1.5 text-[9px] uppercase tracking-[0.25em] text-gold font-bold">
-            <BookOpen className="w-3 h-3" /> Daily Bread
-          </div>
-          <button
-            onClick={close}
-            data-testid="daily-bread-close"
-            className="w-6 h-6 rounded-full hover:bg-white/10 flex items-center justify-center text-white/40"
-            aria-label="Dismiss"
-          >
-            <X className="w-3 h-3" />
-          </button>
+      <div className={`max-w-7xl mx-auto px-5 py-2.5 flex items-center gap-3 transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}>
+        <div className="hidden sm:flex items-center gap-1.5 text-[9px] uppercase tracking-[0.3em] text-gold font-bold shrink-0">
+          <BookOpen className="w-3 h-3" /> Daily Bread
         </div>
-        <p className="font-serif text-sm leading-relaxed text-white/90 italic mb-2">
-          &ldquo;{v.text}&rdquo;
-        </p>
-        <div className="text-[10px] uppercase tracking-widest text-gold/70" data-testid="daily-bread-ref">{v.ref}</div>
+        <BookOpen className="sm:hidden w-3.5 h-3.5 text-gold shrink-0" />
+        <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center gap-x-3">
+          <p className="font-serif text-xs sm:text-sm italic text-white/90 truncate sm:truncate-none leading-snug">
+            &ldquo;{v.text}&rdquo;
+          </p>
+          <span className="text-[10px] uppercase tracking-widest text-gold/70 shrink-0 whitespace-nowrap" data-testid="daily-bread-ref">— {v.ref}</span>
+        </div>
+        <button
+          onClick={close}
+          data-testid="daily-bread-close"
+          className="w-7 h-7 rounded-full hover:bg-white/10 flex items-center justify-center text-white/50 shrink-0"
+          aria-label="Dismiss daily bread"
+        >
+          <X className="w-3.5 h-3.5" />
+        </button>
       </div>
     </div>
   );
