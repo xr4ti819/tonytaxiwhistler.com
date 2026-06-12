@@ -10,6 +10,17 @@ export const FIFA_MATCHES = [
   { date: "Jul 4, 2026", label: "Quarter Final · if Canada advances", kickoff: "5:30 PM", accent: "#4CAF50" },
 ];
 
+export const LAKES_RIVERS = [
+  { name: "Cheakamus Lake", type: "Glacial Lake", desc: "Turquoise alpine lake · 7km easy trail through old-growth · Free parking · Garibaldi Park", img: "https://images.unsplash.com/photo-1567647753830-de3fe7ce9f28?w=800&q=80", shuttle: "$45", access: "Garibaldi Park" },
+  { name: "Cheakamus River", type: "River", desc: "Wild glacier river · Train Wreck suspension bridge · Pebble beaches · Fly fishing · 10 min south", img: "https://images.unsplash.com/photo-1546587348-d12660c30c50?w=800&q=80", shuttle: "$45", access: "Cheakamus" },
+  { name: "Lost Lake", type: "Swimming Lake", desc: "Sandy beach · Summer lifeguards · SUP & kayak rentals · Sunset spot · 15-min walk from village", img: "https://images.unsplash.com/photo-1561134643-668f9057cce4?w=800&q=80", shuttle: "$25", access: "Whistler Village" },
+  { name: "Alta Lake", type: "Beach Lake", desc: "3 beaches · Canoe & kayak rentals · SUP · Fishing · Picnic areas", img: "https://images.unsplash.com/photo-1495612778264-627cd2e6dfb3?w=800&q=80", shuttle: "$25", access: "Westside Rd" },
+  { name: "Green Lake", type: "Glacial Lake", desc: "Famous turquoise glacial colour · Windsurfing · Kiteboarding · Seaplane base · 5-min drive", img: "https://images.unsplash.com/photo-1602519958552-07eb454c9a78?w=800&q=80", shuttle: "$25", access: "Hwy 99" },
+  { name: "Nita Lake", type: "Quiet Lake", desc: "Quiet swimming · Nita Lake Lodge · Private dock access · Less crowded · 10-min walk", img: "https://images.unsplash.com/photo-1572204292164-b35ba943fca7?w=800&q=80", shuttle: "$25", access: "Creekside" },
+  { name: "Brandywine Falls", type: "Waterfall", desc: "70m dramatic waterfall · 10-min walk from parking · Viewing platforms · Year-round", img: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&q=80", shuttle: "$45", access: "Hwy 99 South" },
+  { name: "Joffre Lakes", type: "Triple Glacier Lakes", desc: "Three turquoise alpine lakes · 10km return · Most Instagrammed in BC · Day-use pass required", img: "https://images.unsplash.com/photo-1623423415485-1d36867376b6?w=800&q=80", shuttle: "$55", access: "Pemberton" },
+];
+
 export const SERVICES = [
   { title: "Airport Transfers", desc: "YVR ↔ Whistler · 2hrs door-to-door · Flight tracked", price: "from $299", icon: "Plane" },
   { title: "FIFA 2026", desc: "Whistler ↔ BC Place · Match day premium · Pre-book now", price: "from $349", icon: "Trophy" },

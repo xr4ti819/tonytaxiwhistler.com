@@ -277,50 +277,70 @@ export function Loyalty() {
   const stamps = data?.stamps || 0;
 
   return (
-    <section id="loyalty" className="py-20 px-5" data-testid="loyalty-section">
-      <div className="max-w-3xl mx-auto bg-gradient-to-br from-gold/15 via-transparent to-transparent border border-gold/30 rounded-3xl p-8 sm:p-10 relative overflow-hidden">
-        <div className="shimmer absolute inset-0 pointer-events-none" />
-        <div className="relative">
-          <div className="text-xs uppercase tracking-[0.4em] text-gold mb-3 text-center">Loyalty Club · Free</div>
-          <h2 className="font-serif text-4xl font-black text-center mb-3 tracking-tighter">10 rides. <span className="italic gold-gradient-text">11th free.</span></h2>
-          <p className="text-center text-white/60 mb-8 max-w-xl mx-auto">
-            Your 11th ride matches the average km of your last 10. Airport runs count double. Average member saves ~$250/year.
-          </p>
+    <section id="loyalty" className="py-16 px-5" data-testid="loyalty-section">
+      <div className="max-w-5xl mx-auto relative">
+        {/* Glow halo */}
+        <div className="absolute -inset-1 bg-gradient-to-r from-gold/20 via-fifa/20 to-gold/20 rounded-[2rem] blur-2xl opacity-50 pointer-events-none" />
+        <div className="relative bg-gradient-to-br from-[#1a1410] via-surface to-[#1a1410] border-2 border-gold/50 rounded-[2rem] p-8 sm:p-12 overflow-hidden shadow-2xl">
+          <div className="shimmer absolute inset-0 pointer-events-none" />
+          {/* Spotlight */}
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-gold/15 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="grid grid-cols-5 sm:grid-cols-10 gap-2 mb-8">
-            {Array.from({ length: 10 }).map((_, i) => (
-              <div
-                key={i}
-                data-testid={`loyalty-stamp-${i}`}
-                className={`aspect-square rounded-full border flex items-center justify-center text-sm font-semibold transition-all ${
-                  i < stamps
-                    ? "gold-foil border-gold shadow-lg shadow-gold/30"
-                    : "border-white/15 text-white/30"
-                }`}
-              >
-                {i < stamps ? <Check className="w-4 h-4" strokeWidth={3} /> : i + 1}
+          <div className="relative">
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full gold-foil text-xs uppercase tracking-[0.3em] font-bold shadow-lg mb-5">
+                ⭐ Free Loyalty Club ⭐
               </div>
-            ))}
-          </div>
+              <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter mb-3 leading-[0.95]">
+                Ride 10 times.<br />
+                <span className="italic gold-gradient-text">11th ride is FREE.</span>
+              </h2>
+              <p className="text-white/70 max-w-2xl mx-auto text-base sm:text-lg">
+                Your 11th ride matches the average distance of your last 10. <span className="text-gold font-semibold">Airport runs count double.</span> Members save ~$250/year.
+              </p>
+            </div>
 
-          <form onSubmit={check} className="flex gap-2 max-w-md mx-auto">
-            <input
-              type="tel" value={phone} onChange={(e) => setPhone(e.target.value)}
-              data-testid="loyalty-phone"
-              placeholder="Enter your phone number"
-              className="flex-1 bg-surface2 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold"
-            />
-            <button type="submit" disabled={loading} data-testid="loyalty-check" className="px-5 py-3 rounded-xl gold-foil font-semibold hover:scale-105 transition-transform disabled:opacity-60">
-              {loading ? "..." : "Check"}
-            </button>
-          </form>
-          {data && (
-            <p className="text-center text-sm text-white/60 mt-4" data-testid="loyalty-result">
-              {data.rides} ride{data.rides === 1 ? "" : "s"} · {data.airport_rides} airport · {data.rides_until_free === 0
-                ? <span className="text-gold font-semibold">🎉 Your next ride is on us!</span>
-                : `${data.rides_until_free} more stamps to a free ride`}
-            </p>
-          )}
+            <div className="grid grid-cols-5 sm:grid-cols-10 gap-2 sm:gap-3 mb-8 max-w-3xl mx-auto">
+              {Array.from({ length: 10 }).map((_, i) => (
+                <div
+                  key={i}
+                  data-testid={`loyalty-stamp-${i}`}
+                  className={`aspect-square rounded-full border-2 flex items-center justify-center text-base font-bold transition-all duration-500 ${
+                    i < stamps
+                      ? "gold-foil border-gold shadow-xl shadow-gold/40 scale-105"
+                      : "border-white/15 text-white/30 hover:border-gold/40"
+                  }`}
+                >
+                  {i < stamps ? <Check className="w-5 h-5" strokeWidth={3} /> : i + 1}
+                </div>
+              ))}
+            </div>
+
+            <form onSubmit={check} className="flex gap-2 max-w-md mx-auto">
+              <input
+                type="tel" value={phone} onChange={(e) => setPhone(e.target.value)}
+                data-testid="loyalty-phone"
+                placeholder="Enter your phone to check stamps"
+                className="flex-1 bg-[#0A0A0A]/80 border border-white/15 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20"
+              />
+              <button type="submit" disabled={loading} data-testid="loyalty-check" className="px-6 py-3 rounded-xl gold-foil font-bold hover:scale-105 transition-transform disabled:opacity-60 shadow-lg shadow-gold/20">
+                {loading ? "..." : "Check"}
+              </button>
+            </form>
+            {data && (
+              <p className="text-center text-sm text-white/80 mt-5" data-testid="loyalty-result">
+                <span className="text-gold font-semibold">{data.rides}</span> ride{data.rides === 1 ? "" : "s"} ·{" "}
+                <span className="text-gold font-semibold">{data.airport_rides}</span> airport ·{" "}
+                {data.rides_until_free === 0
+                  ? <span className="text-gold font-bold text-base">🎉 Your next ride is on us!</span>
+                  : <><span className="text-gold font-bold">{data.rides_until_free}</span> more stamps to a free ride</>}
+              </p>
+            )}
+
+            <div className="mt-8 text-center text-[11px] uppercase tracking-[0.25em] text-white/40">
+              Joining is automatic · Track by phone number · No app needed
+            </div>
+          </div>
         </div>
       </div>
     </section>

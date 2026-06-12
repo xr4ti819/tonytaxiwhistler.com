@@ -18,6 +18,7 @@ import MusicWidget from "@/components/MusicWidget";
 import DailyBread from "@/components/DailyBread";
 import LiveConditions from "@/components/LiveConditions";
 import CommunityRec from "@/components/CommunityRec";
+import LakesRivers from "@/components/LakesRivers";
 
 function useAutoRefresh(minutes = 15) {
   React.useEffect(() => {
@@ -50,6 +51,7 @@ function Home() {
       <DailyBread />
       <main>
         <Hero />
+        <Loyalty />
         <LiveConditions />
         <Services />
         <DesignatedDriver />
@@ -58,8 +60,8 @@ function Home() {
         <BookingForm />
         <VsBus />
         <Activities />
+        <LakesRivers />
         <Trails />
-        <Loyalty />
         <Dining />
         <CommunityRec />
         <Nightlife />
