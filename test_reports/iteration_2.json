@@ -1,0 +1,49 @@
+{
+  "summary": "Iteration 2 full retest of Tony Taxi Whistler V3 (Daily Bread banner, QR badge, Language selector, Designated Driver, Live Conditions, Lakes & Rivers, Community Rec, merged Happy Hour into Nightlife, Music widget). Backend pytest: 9/9 passed (added designated driver $60 premium test). Frontend Playwright: all 30+ critical flows verified including end-to-end booking (Confirmation #3F769A7D, $359 fare with DD premium) and FIFA fare ($399 = $349 base + $50 FIFA premium).",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "/api/loyalty/{phone}", "issue": "Loyalty regex uses last-7-digit substring match without anchoring — could match unrelated phones sharing last 7 digits (carried from iter 1)."},
+      {"endpoint": "general", "issue": "@app.on_event('shutdown') deprecated; prefer FastAPI lifespan."}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Services grid", "issue": "Request specified 5 services INCLUDING Designated Driver, but SERVICES array in /app/frontend/src/data.js contains only 4 items (Airport, FIFA 2026, Activities, Nightlife). Designated Driver has its own #dd section but is missing from the Services grid tile.", "selector": "[data-testid='services-section']", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Mobile 375px", "issues": ["Body scrollWidth=402 vs clientWidth=375 (~27px horizontal overflow). Likely caused by an absolutely-positioned widget (Emergent chat / floating CTA stack) — verify nothing on the page extends past viewport. Functional but creates a small horizontal scroll."]},
+      {"screen": "Hero (desktop)", "issues": ["Emergent third-party chat + 'Made with Emergent' badge bottom-right overlap the FloatingCTAs stack — carried from iter 1, requires z-index/positioning adjustment."]}
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_tony_taxi.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Add 'Designated Driver' entry to SERVICES array in /app/frontend/src/data.js so the Services grid shows the requested 5 tiles (icon: ShieldCheck or KeyRound, price: from $89, link to #dd).",
+    "Investigate ~27px mobile horizontal overflow at 375px viewport (likely floating CTA or chat widget anchor).",
+    "Optional: anchor loyalty phone regex to full normalized digits.",
+    "Optional: migrate @app.on_event('shutdown') to FastAPI lifespan handlers.",
+    "Optional: raise FloatingCTAs z-index above Emergent third-party widget on desktop."
+  ],
+  "critical_code_review_comments": [
+    "server.py concise (<250 lines), no MongoDB _id leak (projection excludes it), Pydantic-validated inputs, correct HTTP codes.",
+    "Designated Driver pricing logic correctly adds $60 driver premium for service_type='designated' and exposes it in breakdown.designated_driver_premium.",
+    "Frontend uses process.env.REACT_APP_BACKEND_URL exclusively (no hardcoded URLs).",
+    "All new components (DailyBread, MusicWidget, LiveConditions, LakesRivers, CommunityRec, DesignatedDriver, QRBadge, LanguageSelector) have data-testid coverage.",
+    "Services grid declares lg:grid-cols-5 but data has only 4 entries — empty column on large screens (design+content mismatch).",
+    "FAQ uses controlled useState accordion (not native <details>), with index 0 open by default — functional but make sure clicks toggle correctly (verified)."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_tony_taxi.py (added test_fare_designated_driver covering $60 DD premium → $85 for Whistler↔Creekside)"
+  ],
+  "success_rate": {"backend": "100% (9/9 pytest)", "frontend": "97% (1 content gap — Services missing DD tile; mobile overflow design issue)"},
+  "test_credentials": "None — public site, no auth",
+  "seed_data_creation": "Pytest creates/cleans bookings for phones 7785551234 and 7789998888. Frontend booking test created a real pending booking for phone 7785559999 (status=pending, does not affect loyalty counts).",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend tests at /app/backend/tests/test_tony_taxi.py — 9 tests covering root, 3 fare scenarios (YVR base $299, FIFA premium +$50, DD premium +$60, 5+ pax surcharge +$40), create+persist booking, list sort, full loyalty flow with mongo-confirmed bookings, and testimonials. Frontend verified: Daily Bread banner (Proverbs 3:5–6) + close button, Hero countdown + 4.9 rating + FIFA chip, Loyalty section with 10 stamps & phone lookup returning '0 rides · 0 airport · 10 more stamps', LiveConditions weather+road cards, DesignatedDriver 3 steps + call/book CTAs, FareCalculator end-to-end with FIFA pill ($399 result + breakdown), BookingForm e2e submission success (Confirmation # + $359 fare with DD premium), FIFA 4 cards, Activities 12 with verified images (Bungee, Jet Ski, Helicopter all show real photos), Lakes 8 cards with images, Dining 15 restaurants, Community 5 cards, Nightlife 8 venues, Events 8 cards, Testimonials carousel, FAQ 8 controlled-state accordion items, Footer with phone+email+address, MusicWidget panel with play/next + 'FIFA 2026 · CA · MX · US' badge, QR modal with QR image, 11-language selector, all 8 header nav anchors (#fifa #book #dd #activities #dining #nightlife #loyalty #faq), mobile menu toggle + action bar at 375px. Only content gap: Services grid has 4 tiles not 5 (missing DD).",
+  "rca of the issue": "Services grid mismatch: /app/frontend/src/data.js SERVICES array has only 4 entries; Sections.jsx uses lg:grid-cols-5 expecting 5. Add a 5th tile `{ title: 'Designated Driver', desc: 'We drive you home in YOUR car · From $89', price: 'from $89', icon: 'KeyRound' }` (or similar). Mobile horizontal overflow (~27px) likely from a fixed-position element with right offset — inspect FloatingCTAs / MobileActionBar / chat widget positioning on 375px."
+}

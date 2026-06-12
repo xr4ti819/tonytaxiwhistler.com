@@ -65,6 +65,19 @@ def test_fare_fifa_premium(session):
     assert data["breakdown"]["fifa_premium"] == 50
 
 
+# Fare estimate - designated driver +$60 premium
+def test_fare_designated_driver(session):
+    r = session.post(f"{API}/fare-estimate", json={
+        "pickup": "Whistler Village", "dropoff": "Creekside",
+        "passengers": 2, "service_type": "designated"
+    })
+    assert r.status_code == 200
+    data = r.json()
+    # 25 base + 60 designated driver premium = 85
+    assert data["estimate"] == 85
+    assert data["breakdown"]["designated_driver_premium"] == 60
+
+
 # Fare estimate - group 5+ surcharge
 def test_fare_group_surcharge(session):
     r = session.post(f"{API}/fare-estimate", json={
