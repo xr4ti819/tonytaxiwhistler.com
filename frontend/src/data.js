@@ -65,6 +65,7 @@ export const COMMUNITY_SERVICES = [
     link: "https://whistlerchurch.com/",
     shuttle: "Free for seniors Sundays",
     tag: "Faith",
+    img: "https://images.unsplash.com/photo-1438032005730-c779502df39b?w=800&q=80",
   },
   {
     name: "Meadow Park Sports Centre",
@@ -73,6 +74,7 @@ export const COMMUNITY_SERVICES = [
     link: "https://www.whistler.ca/services/recreation/meadow-park-sports-centre",
     shuttle: "$25",
     tag: "Recreation",
+    img: "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=800&q=80",
   },
   {
     name: "Whistler Community Services Society (WCSS)",
@@ -81,6 +83,7 @@ export const COMMUNITY_SERVICES = [
     link: "https://mywcss.org/",
     shuttle: "Free for clients",
     tag: "Community Support",
+    img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
   },
   {
     name: "Whistler Public Library",
@@ -89,6 +92,7 @@ export const COMMUNITY_SERVICES = [
     link: "https://www.whistlerlibrary.ca/",
     shuttle: "$15",
     tag: "Free",
+    img: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=80",
   },
   {
     name: "Whistler Health Care Centre",
@@ -97,16 +101,19 @@ export const COMMUNITY_SERVICES = [
     link: "tel:6049324911",
     shuttle: "Priority dispatch",
     tag: "Medical",
+    img: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&q=80",
   },
 ];
 
 export const NIGHTLIFE = [
-  { name: "Garfinkel's", type: "Club", hours: "3PM–2AM", desc: "Live DJ · Dance floor · Apres-ski hotspot", img: "https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?w=800&q=80" },
-  { name: "Tommy Africa's", type: "Underground Club", hours: "10PM–3AM", desc: "Hip-hop & electronic · Late-night", img: "https://images.unsplash.com/photo-1571266028243-d220bc1d2c79?w=800&q=80" },
-  { name: "Dusty's Bar & BBQ", type: "Apres-Ski", hours: "Since 1965", desc: "Live music · BBQ · Patio · Creekside", img: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" },
-  { name: "The Mallard Lounge", type: "Lounge", hours: "Evenings", desc: "Upscale cocktails · Fireplace · Piano", img: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" },
-  { name: "Merlin's Bar", type: "Pub", hours: "Apres-ski", desc: "Pool tables · Burgers & beers", img: "https://images.unsplash.com/photo-1518176258769-f227c798150e?w=800&q=80" },
-  { name: "Buffalo Bills", type: "Club", hours: "9PM–3AM", desc: "Iconic Whistler · Theme nights · 21+", img: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" },
+  { name: "Garfinkel's", type: "Club", hours: "3PM–2AM", desc: "Live DJ · Dance floor · Apres-ski hotspot", img: "https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?w=800&q=80", happy_hour: "" },
+  { name: "Tommy Africa's", type: "Underground Club", hours: "10PM–3AM", desc: "Hip-hop & electronic · Late-night", img: "https://images.unsplash.com/photo-1571266028243-d220bc1d2c79?w=800&q=80", happy_hour: "" },
+  { name: "Dusty's Bar & BBQ", type: "Apres-Ski", hours: "Since 1965", desc: "Live music · BBQ · Patio · Creekside", img: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80", happy_hour: "3–6 PM · $5 beers · $7 wings · $8 burgers" },
+  { name: "The Mallard Lounge", type: "Lounge", hours: "Evenings", desc: "Upscale cocktails · Fireplace · Piano", img: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80", happy_hour: "4–7 PM · $8 cocktails · $10 wine · $12 charcuterie" },
+  { name: "Merlin's Bar", type: "Pub", hours: "Apres-ski", desc: "Pool tables · Burgers & beers", img: "https://images.unsplash.com/photo-1518176258769-f227c798150e?w=800&q=80", happy_hour: "3–6 PM · Drink specials" },
+  { name: "Buffalo Bills", type: "Club", hours: "9PM–3AM", desc: "Iconic Whistler · Theme nights · 21+", img: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80", happy_hour: "4–7 PM · $4 shots · $5 highballs · $6 apps" },
+  { name: "Bar Oso", type: "Spanish Bar", hours: "5PM–Late", desc: "Tapas · Sherry · Award-winning cocktails", img: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80", happy_hour: "5–6 PM · $8 sangria · half-price tapas" },
+  { name: "Bearfoot Bistro Lounge", type: "Champagne Lounge", hours: "Evenings", desc: "Champagne sabering · Ice room vodka tastings", img: "https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=800&q=80", happy_hour: "5–7 PM · $10 cocktails · $12 oysters" },
 ];
 
 export const HAPPY_HOUR = [
@@ -119,14 +126,14 @@ export const HAPPY_HOUR = [
 ];
 
 export const EVENTS_2026 = [
-  { name: "FIFA World Cup", when: "Jun 13 – Jul 6", tag: "Global" },
-  { name: "Crankworx Whistler", when: "Jul 24 – Aug 2", tag: "MTB" },
-  { name: "Wanderlust Yoga", when: "Aug 1 – 4", tag: "Wellness" },
-  { name: "IRONMAN Canada", when: "Jul 26", tag: "Triathlon" },
-  { name: "GranFondo", when: "Sep 12", tag: "Cycling" },
-  { name: "Cornucopia Festival", when: "Nov 5 – 15", tag: "Food & Wine" },
-  { name: "Tough Mudder", when: "Jun 20 – 21", tag: "Obstacle Race" },
-  { name: "WSSF", when: "Apr 10 – 19", tag: "Snow Sports" },
+  { name: "FIFA World Cup", when: "Jun 13 – Jul 6", tag: "Global", img: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800&q=80" },
+  { name: "Crankworx Whistler", when: "Jul 24 – Aug 2", tag: "MTB", img: "https://images.unsplash.com/photo-1605034313761-73ea4a0cfbf3?w=800&q=80" },
+  { name: "Wanderlust Yoga", when: "Aug 1 – 4", tag: "Wellness", img: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=800&q=80" },
+  { name: "IRONMAN Canada", when: "Jul 26", tag: "Triathlon", img: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&q=80" },
+  { name: "GranFondo", when: "Sep 12", tag: "Cycling", img: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=800&q=80" },
+  { name: "Cornucopia Festival", when: "Nov 5 – 15", tag: "Food & Wine", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" },
+  { name: "Tough Mudder", when: "Jun 20 – 21", tag: "Obstacle Race", img: "https://images.unsplash.com/photo-1558618047-f4b511ba5ad8?w=800&q=80" },
+  { name: "WSSF · Snow & Ski Festival", when: "Apr 10 – 19", tag: "Snow Sports", img: "https://images.unsplash.com/photo-1551524559-8af4e6624178?w=800&q=80" },
 ];
 
 export const EMERGENCY = [

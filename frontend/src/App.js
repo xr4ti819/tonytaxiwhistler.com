@@ -8,7 +8,7 @@ import BookingForm from "@/components/BookingForm";
 import FloatingCTAs from "@/components/FloatingCTAs";
 import {
   Services, FIFASection, VsBus, Activities, Trails, Dining,
-  HappyHour, Nightlife, Loyalty, Testimonials, Events, Emergency,
+  Nightlife, Loyalty, Testimonials, Events, Emergency,
   FAQSection, Footer
 } from "@/components/Sections";
 import QRCodeBlock from "@/components/QRCodeBlock";
@@ -62,7 +62,6 @@ function Home() {
         <Loyalty />
         <Dining />
         <CommunityRec />
-        <HappyHour />
         <Nightlife />
         <Testimonials />
         <Events />

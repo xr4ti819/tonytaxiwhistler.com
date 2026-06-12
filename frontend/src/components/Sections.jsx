@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Phone, Trophy, Plane, Moon, Mountain, Star, Check, Award, Quote, ShieldCheck } from "lucide-react";
-import {
-  PHONE, PHONE_TEL, FIFA_MATCHES, SERVICES, ACTIVITIES, TRAILS, RESTAURANTS,
-  NIGHTLIFE, HAPPY_HOUR, EVENTS_2026, EMERGENCY, FAQ
+import { PHONE, PHONE_TEL, FIFA_MATCHES, SERVICES, ACTIVITIES, TRAILS, RESTAURANTS,
+  NIGHTLIFE, EVENTS_2026, EMERGENCY, FAQ
 } from "@/data";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
@@ -366,15 +365,21 @@ export function Testimonials() {
 export function Events() {
   return (
     <section className="py-20 px-5" data-testid="events-section">
-      <div className="max-w-6xl mx-auto">
-        <SectionHeading kicker="Calendar 2026" title={<>The year in <span className="italic gold-gradient-text">Whistler.</span></>} />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+      <div className="max-w-7xl mx-auto">
+        <SectionHeading kicker="Calendar 2026" title={<>This year in <span className="italic gold-gradient-text">Whistler.</span></>} />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
           {EVENTS_2026.map((e, i) => (
-            <div key={e.name} data-testid={`event-${i}`} className="bg-surface border border-white/5 rounded-xl p-5 hover:border-gold/30 transition-colors">
-              <div className="text-xs uppercase tracking-wider text-gold mb-2">{e.tag}</div>
-              <h3 className="font-serif text-lg font-bold mb-1">{e.name}</h3>
-              <div className="text-xs text-white/50">{e.when}</div>
-            </div>
+            <article key={e.name} data-testid={`event-${i}`} className="group relative bg-surface border border-white/5 rounded-2xl overflow-hidden hover:border-gold/30 transition-all">
+              <div className="relative h-44 overflow-hidden">
+                <img src={e.img} alt={e.name} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent" />
+                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur text-[10px] uppercase tracking-wider text-gold border border-gold/30">{e.tag}</span>
+              </div>
+              <div className="p-5">
+                <h3 className="font-serif text-lg font-bold mb-1 leading-tight">{e.name}</h3>
+                <div className="text-xs text-white/50">{e.when}</div>
+              </div>
+            </article>
           ))}
         </div>
       </div>
