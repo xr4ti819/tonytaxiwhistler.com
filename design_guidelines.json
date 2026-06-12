@@ -1,0 +1,151 @@
+{
+  "theme_and_archetype": {
+    "domain": "Premium Taxi / Transportation / Tourism",
+    "theme": "dark",
+    "archetype": "5 (Luxury)",
+    "description": "A modern luxury design combining deep charcoal and obsidian blacks with warm metallic gold accents. It balances the high-end VIP concierge feel with the rugged, snowy atmosphere of Whistler, BC. The aesthetic relies on spatial depth, bento-grid layouts, dark-first tonal elevation, and refined glassmorphism rather than flat blocks."
+  },
+  "color_palette": {
+    "background": {
+      "base": "#0A0A0A",
+      "surface": "#121418",
+      "surface_elevated": "#1A1D24",
+      "glass": "rgba(10, 10, 10, 0.65)"
+    },
+    "primary": {
+      "gold_metallic": "#D4AF37",
+      "champagne": "#F2E3C6",
+      "gold_glow": "rgba(212, 175, 55, 0.2)"
+    },
+    "accent": {
+      "fifa_energy": "#FF6B35",
+      "emergency_red": "#D93838",
+      "whatsapp_green": "#25D366"
+    },
+    "text": {
+      "primary": "#F8F9FA",
+      "secondary": "#9BA1A6",
+      "tertiary": "#6B7280",
+      "on_gold": "#0A0A0A"
+    },
+    "borders": {
+      "subtle": "rgba(255, 255, 255, 0.08)",
+      "gold": "rgba(212, 175, 55, 0.4)"
+    }
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Cabinet Grotesk, sans-serif",
+      "weights": ["400", "700", "900"],
+      "style": "tracking-tight, bold, authoritative luxury"
+    },
+    "body": {
+      "font_family": "Outfit, sans-serif",
+      "weights": ["300", "400", "500"],
+      "style": "clean, highly legible, generous line height"
+    },
+    "scale": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tighter leading-none",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-tight",
+      "h3": "text-xl sm:text-2xl tracking-tight",
+      "body": "text-base leading-relaxed text-secondary",
+      "small": "text-sm tracking-wide uppercase text-tertiary"
+    }
+  },
+  "layout_and_spacing": {
+    "spacing_scale": "p-4, p-6, p-8, p-12, p-16, p-24",
+    "section_padding": "py-16 md:py-24",
+    "grid_system": {
+      "general": "grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8",
+      "bento_asymmetric": "Mix of col-span-12, col-span-8, col-span-4 for a magazine-like layout",
+      "cards": "Dense 'Control Room' grids for the many activity cards (ATV, Bungee, Golf) to ensure they are scannable but distinct."
+    },
+    "mobile_first": "Ensure tap targets (buttons, links) are at least 48px. Use a floating or fixed bottom action bar for primary conversions (Book / Call / WhatsApp)."
+  },
+  "surface_strategies": {
+    "glassmorphism": {
+      "usage": "Sticky headers, floating action buttons (FABs), bottom navigation sheets.",
+      "classes": "backdrop-blur-xl bg-[#0A0A0A]/60 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+    },
+    "cards": {
+      "usage": "Activity cards, restaurant features, loyalty program.",
+      "classes": "bg-[#121418] border border-white/5 rounded-2xl overflow-hidden hover:-translate-y-1 hover:border-gold/40 transition-all duration-300 shadow-lg"
+    },
+    "tracing_beam": {
+      "usage": "FIFA 2026 Countdown section, premium VIP transfer highlight.",
+      "classes": "relative overflow-hidden group border border-white/10, utilizing a subtle moving gradient background mask for high-tech luxury."
+    }
+  },
+  "component_instructions": {
+    "hero_section": "Dark atmospheric hero image of a luxury SUV in snow, heavily overlaid (bg-black/50) to allow the Gold text and FIFA 2026 countdown to pop. Phone CTA must be the primary visual hook.",
+    "instant_fare_calculator": "A sleek, bento-style widget. Use Shadcn Inputs and Select components stripped of their generic styles, customized with deep charcoal backgrounds, white/10 borders, and gold focus rings.",
+    "booking_form": "Mobile-optimized. Group fields logically. Primary 'Book Now' button should be metallic gold background with black text. Include visual placements for Apple Pay / Google Pay at checkout.",
+    "floating_action_buttons": "A vertical stack or bottom fixed bar on mobile. Call (Gold), WhatsApp (Green), SMS (White). Include phone number '778-917-3030' in text form clearly visible near the top and bottom.",
+    "activities_grid": "20+ items. Use an asymmetric grid. Some items span 2 columns, some 1. Use images for high-ticket items (Helicopter, ATV), icon-only for minor features. Cards must have 'Book Transport' gold text CTAs.",
+    "loyalty_program": "A dark card with 10 visual 'stamps'. The 11th stamp is a gold icon (Free Ride). Add text: 'Airport transfers = 2 stamps'.",
+    "award_badges": "For restaurants. Create a small absolute positioned badge top-right of the card: `bg-gradient-to-br from-[#D4AF37] to-[#8C6D1F] text-black text-xs font-bold px-2 py-1 rounded-sm shadow-md`.",
+    "testimonials": "Use `react-fast-marquee` (or similar smooth infinite scroll) for a luxury editorial ribbon feel. Very slow movement. Cards should be dark tonal grey with white/5 borders."
+  },
+  "media": {
+    "icons": {
+      "library": "lucide-react",
+      "instruction": "Use thin, elegant strokes (strokeWidth 1.5). For luxury accents, color icons in gold (#D4AF37)."
+    },
+    "image_urls": [
+      {
+        "category": "hero",
+        "url": "https://images.unsplash.com/photo-1581411025298-98a9987d7ce7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NjV8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBibGFjayUyMHN1diUyMHNub3d8ZW58MHx8fHwxNzgxMjI4NjIwfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Black luxury SUV in snow for the hero background"
+      },
+      {
+        "category": "background_whistler",
+        "url": "https://images.unsplash.com/photo-1642970047530-a3b7093fadd6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwzfHx3aGlzdGxlciUyMG1vdW50YWluJTIwd2ludGVyfGVufDB8fHx8MTc4MTIyODYyMHww&ixlib=rb-4.1.0&q=85",
+        "description": "Whistler mountain winter landscape for parallax or section breaks"
+      },
+      {
+        "category": "activity_helicopter",
+        "url": "https://images.unsplash.com/photo-1534621107955-b06bbc17b043?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxoZWxpY29wdGVyJTIwbW91bnRhaW5zfGVufDB8fHx8MTc4MTIyODYyMHww&ixlib=rb-4.1.0&q=85",
+        "description": "Helicopter over snow mountains"
+      },
+      {
+        "category": "activity_golf",
+        "url": "https://images.unsplash.com/photo-1692931460164-f71ed1101ecf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHw0fHxnb2xmJTIwY291cnNlJTIwbW91bnRhaW5zfGVufDB8fHx8MTc4MTIyODYyMHww&ixlib=rb-4.1.0&q=85",
+        "description": "Golf course mountains"
+      },
+      {
+        "category": "activity_atv",
+        "url": "https://images.unsplash.com/photo-1769272260986-6af5820c545e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHw0fHxhdHYlMjBzbm93JTIwbW91bnRhaW58ZW58MHx8fHwxNzgxMjI4NjMzfDA&ixlib=rb-4.1.0&q=85",
+        "description": "ATV in snow mountain"
+      },
+      {
+        "category": "activity_rafting",
+        "url": "https://images.unsplash.com/photo-1641584495089-5914d85d9bcc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxyaXZlciUyMHJhZnRpbmclMjBtb3VudGFpbnN8ZW58MHx8fHwxNzgxMjI4NjMzfDA&ixlib=rb-4.1.0&q=85",
+        "description": "River rafting mountains"
+      },
+      {
+        "category": "activity_hot_springs",
+        "url": "https://images.unsplash.com/photo-1519320993082-43a535317ddc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwyfHxob3QlMjBzcHJpbmdzJTIwd2ludGVyJTIwbmF0dXJlfGVufDB8fHx8MTc4MTIyODYzNHww&ixlib=rb-4.1.0&q=85",
+        "description": "Hot springs in winter nature"
+      },
+      {
+        "category": "dining",
+        "url": "https://images.pexels.com/photos/17057034/pexels-photo-17057034.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Fine dining restaurant setting"
+      },
+      {
+        "category": "event_fifa",
+        "url": "https://images.unsplash.com/photo-1522778119026-d647f0596c20?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzV8MHwxfHNlYXJjaHwxfHxmaWZhJTIwc29jY2VyJTIwc3RhZGl1bSUyMG5pZ2h0fGVufDB8fHx8MTc4MTIyODYzM3ww&ixlib=rb-4.1.0&q=85",
+        "description": "FIFA soccer stadium at night"
+      }
+    ]
+  },
+  "motion_and_interactions": {
+    "hover_states": "All buttons should have a slight scale up (scale-105) and an increase in brightness on hover. Text colors must maintain high contrast.",
+    "reveal_animations": "Use stagger-children for bento grid cards so they cascade in beautifully as the user scrolls. Use Framer Motion for scroll-triggered fades.",
+    "loyalty_stamps": "Add a subtle 'stamp' animation (pop and fade) for the loyalty tracker visual."
+  },
+  "accessibility_and_testing": {
+    "contrast": "Ensure white text over gold buttons has enough contrast, otherwise use black text on gold backgrounds.",
+    "testing_attributes": "Add data-testid to all interactive elements, e.g., data-testid='book-now-button', data-testid='whatsapp-fab', data-testid='fare-calculator-submit'."
+  }
+}
