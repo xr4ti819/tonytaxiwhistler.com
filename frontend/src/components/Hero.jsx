@@ -27,7 +27,8 @@ export default function Hero() {
         <img
           src="https://images.unsplash.com/photo-1581411025298-98a9987d7ce7?w=1920&q=85"
           alt="Whistler mountain road"
-          className="w-full h-full object-cover scale-105"
+          className="w-full h-full object-cover scale-110 animate-[kenburns_30s_ease-in-out_infinite]"
+          style={{ animationDirection: "alternate" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/40 to-black" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent" />

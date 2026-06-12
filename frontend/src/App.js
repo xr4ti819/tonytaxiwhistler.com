@@ -19,6 +19,9 @@ import DailyBread from "@/components/DailyBread";
 import LiveConditions from "@/components/LiveConditions";
 import CommunityRec from "@/components/CommunityRec";
 import LakesRivers from "@/components/LakesRivers";
+import LiveTicker from "@/components/LiveTicker";
+import TriviaCard from "@/components/TriviaCard";
+import Concierge from "@/components/Concierge";
 
 function useAutoRefresh(minutes = 15) {
   React.useEffect(() => {
@@ -49,6 +52,7 @@ function Home() {
     <div className="min-h-screen bg-background text-foreground antialiased">
       <Header />
       <DailyBread />
+      <LiveTicker />
       <main>
         <Hero />
         <Loyalty />
@@ -62,6 +66,7 @@ function Home() {
         <Activities />
         <LakesRivers />
         <Trails />
+        <TriviaCard />
         <Dining />
         <CommunityRec />
         <Nightlife />
@@ -75,6 +80,7 @@ function Home() {
       <FloatingCTAs />
       <MobileActionBar />
       <MusicWidget />
+      <Concierge />
     </div>
   );
 }

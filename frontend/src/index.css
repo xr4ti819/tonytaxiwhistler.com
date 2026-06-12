@@ -100,6 +100,11 @@ h1, h2, h3, h4, h5, h6 {
     100% { transform: translateX(-50%); }
 }
 
+@keyframes kenburns {
+    0% { transform: scale(1.05) translate(0, 0); }
+    100% { transform: scale(1.15) translate(-2%, -1%); }
+}
+
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: #0A0A0A; }
 ::-webkit-scrollbar-thumb { background: #2A2A2A; border-radius: 5px; }

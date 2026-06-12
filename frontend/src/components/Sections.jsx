@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import confetti from "canvas-confetti";
 import { Phone, Trophy, Plane, Moon, Mountain, Star, Check, Award, Quote, ShieldCheck } from "lucide-react";
-import { PHONE, PHONE_TEL, FIFA_MATCHES, SERVICES, ACTIVITIES, TRAILS, RESTAURANTS,
+import { PHONE, PHONE_TEL, WHATSAPP, FIFA_MATCHES, SERVICES, ACTIVITIES, TRAILS, RESTAURANTS,
   NIGHTLIFE, EVENTS_2026, EMERGENCY, FAQ
 } from "@/data";
 
@@ -32,6 +33,13 @@ export function Services() {
   );
 }
 
+function daysUntil(dateStr) {
+  const [m, d, y] = dateStr.replace(",", "").split(" ");
+  const months = { Jan:0, Feb:1, Mar:2, Apr:3, May:4, Jun:5, Jul:6, Aug:7, Sep:8, Oct:9, Nov:10, Dec:11 };
+  const t = new Date(parseInt(y), months[m], parseInt(d)).getTime();
+  return Math.max(0, Math.ceil((t - Date.now()) / 86400000));
+}
+
 export function FIFASection() {
   return (
     <section id="fifa" className="py-20 px-5 relative" data-testid="fifa-section">
@@ -49,20 +57,31 @@ export function FIFASection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-5">
-          {FIFA_MATCHES.map((m) => (
-            <div
-              key={m.date} data-testid={`fifa-match-${m.date}`}
-              className="bg-surface border border-white/5 rounded-2xl p-6 hover:border-gold/30 transition-all relative overflow-hidden"
-              style={{ borderLeftWidth: "3px", borderLeftColor: m.accent }}
-            >
-              <div className="text-xs uppercase tracking-[0.3em] mb-2" style={{ color: m.accent }}>{m.date}</div>
-              <h3 className="font-serif text-2xl font-bold mb-2">{m.label}</h3>
-              <p className="text-sm text-white/60">Kickoff {m.kickoff} · Whistler pickup 2.5 hrs before · Door-to-door BC Place</p>
-              <a href={PHONE_TEL} className="mt-4 inline-flex items-center gap-2 text-gold text-sm font-medium hover:underline" data-testid={`fifa-book-${m.date}`}>
-                Reserve this match-day <Phone className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          ))}
+          {FIFA_MATCHES.map((m) => {
+            const days = daysUntil(m.date);
+            return (
+              <div
+                key={m.date} data-testid={`fifa-match-${m.date}`}
+                className="bg-surface border border-white/5 rounded-2xl p-6 hover:border-gold/30 transition-all relative overflow-hidden"
+                style={{ borderLeftWidth: "3px", borderLeftColor: m.accent }}
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <div className="text-xs uppercase tracking-[0.3em] mb-2" style={{ color: m.accent }}>{m.date}</div>
+                    <h3 className="font-serif text-2xl font-bold mb-2">{m.label}</h3>
+                    <p className="text-sm text-white/60">Kickoff {m.kickoff} · Pickup 2.5 hrs before</p>
+                  </div>
+                  <div className="text-right shrink-0">
+                    <div className="font-serif text-3xl font-black tabular-nums" style={{ color: m.accent }}>{days}</div>
+                    <div className="text-[9px] uppercase tracking-widest text-white/40">days</div>
+                  </div>
+                </div>
+                <a href={PHONE_TEL} className="mt-4 inline-flex items-center gap-2 text-gold text-sm font-medium hover:underline" data-testid={`fifa-book-${m.date}`}>
+                  Reserve this match-day <Phone className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            );
+          })}
         </div>
 
         <div className="mt-10 bg-gradient-to-br from-fifa/15 to-transparent border border-fifa/30 rounded-2xl p-8 text-center">
@@ -275,6 +294,24 @@ export function Loyalty() {
   };
 
   const stamps = data?.stamps || 0;
+  const tier = stamps >= 10 ? "FIFA VIP" : stamps >= 7 ? "Gold" : stamps >= 4 ? "Silver" : stamps >= 1 ? "Bronze" : "Rookie";
+  const tierColor = { "FIFA VIP": "text-fifa", Gold: "text-gold", Silver: "text-zinc-300", Bronze: "text-amber-600", Rookie: "text-white/40" }[tier];
+
+  useEffect(() => {
+    if (stamps >= 10 && data) {
+      confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 }, colors: ["#D4AF37", "#F2E3C6", "#FF6B35"] });
+      if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
+    }
+  }, [stamps, data]);
+
+  const share = () => {
+    const text = "I just booked Tony Taxi Whistler — 24/7 private rides, FIFA 2026 transport, Designated Driver. Save this number: 778-917-3030 → https://tonytaxiwhistler.com";
+    if (navigator.share) {
+      navigator.share({ title: "Tony Taxi Whistler", text, url: "https://tonytaxiwhistler.com" });
+    } else {
+      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
+    }
+  };
 
   return (
     <section id="loyalty" className="py-16 px-5" data-testid="loyalty-section">
@@ -289,7 +326,7 @@ export function Loyalty() {
           <div className="relative">
             <div className="text-center mb-6">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full gold-foil text-xs uppercase tracking-[0.3em] font-bold shadow-lg mb-5">
-                ⭐ Free Loyalty Club ⭐
+                ⭐ Free Loyalty Club · <span className={tierColor}>{tier} tier</span> ⭐
               </div>
               <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter mb-3 leading-[0.95]">
                 Ride 10 times.<br />
@@ -337,8 +374,16 @@ export function Loyalty() {
               </p>
             )}
 
-            <div className="mt-8 text-center text-[11px] uppercase tracking-[0.25em] text-white/40">
-              Joining is automatic · Track by phone number · No app needed
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 text-[11px] uppercase tracking-[0.25em] text-white/40">
+              <span>Joining is automatic · Track by phone</span>
+              <span className="hidden sm:inline text-white/20">·</span>
+              <button
+                onClick={share}
+                data-testid="loyalty-refer"
+                className="text-emerald-400 hover:text-emerald-300 underline-offset-4 hover:underline"
+              >
+                Refer a friend · Get a free stamp
+              </button>
             </div>
           </div>
         </div>

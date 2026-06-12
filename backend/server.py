@@ -18,6 +18,18 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
+# LLM concierge
+from emergentintegrations.llm.chat import LlmChat, UserMessage
+
+EMERGENT_LLM_KEY = os.environ.get('EMERGENT_LLM_KEY', '')
+CONCIERGE_SYSTEM = (
+    "You are Tony, the friendly local concierge for Tony Taxi Whistler. "
+    "You know Whistler, BC inside out — restaurants, trails, lakes, events, FIFA 2026, weather, road conditions. "
+    "Reply in 2-4 short sentences, warm and confident. When a user wants a ride, suggest they call 778-917-3030 or book online. "
+    "Mention Tony Taxi services naturally where relevant (airport, FIFA, designated driver, trailhead shuttle). "
+    "Never make up prices — instead say 'call us for a quote'."
+)
+
 app = FastAPI(title="Tony Taxi Whistler API")
 api_router = APIRouter(prefix="/api")
 
@@ -219,6 +231,32 @@ async def get_testimonials():
         Testimonial(name="Daniel H.", location="Calgary, AB", rating=5,
                     text="The loyalty program is legit. I'm on ride #9 this season and got a free heli-tour shuttle queued up. Tony Taxi is part of our annual ski trip now."),
     ]
+
+
+class ConciergeRequest(BaseModel):
+    session_id: str
+    message: str
+
+
+class ConciergeResponse(BaseModel):
+    reply: str
+
+
+@api_router.post("/concierge/chat", response_model=ConciergeResponse)
+async def concierge_chat(req: ConciergeRequest):
+    if not EMERGENT_LLM_KEY:
+        return ConciergeResponse(reply="Concierge is offline. Call 778-917-3030 and we'll help directly.")
+    try:
+        chat = LlmChat(
+            api_key=EMERGENT_LLM_KEY,
+            session_id=f"concierge-{req.session_id}",
+            system_message=CONCIERGE_SYSTEM,
+        ).with_model("anthropic", "claude-sonnet-4-6")
+        reply = await chat.send_message(UserMessage(text=req.message))
+        return ConciergeResponse(reply=str(reply))
+    except Exception as e:
+        logger.error(f"Concierge error: {e}")
+        return ConciergeResponse(reply="I'm having trouble right now — please call 778-917-3030 and a real human will help.")
 
 
 app.include_router(api_router)

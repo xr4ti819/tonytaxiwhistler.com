@@ -27,6 +27,7 @@ export default function FloatingCTAs() {
         href={PHONE_TEL}
         data-testid="call-fab"
         aria-label="Call Tony Taxi"
+        onClick={() => navigator.vibrate && navigator.vibrate([40, 20, 40])}
         className="pointer-events-auto fab-pulse w-16 h-16 rounded-full gold-foil flex items-center justify-center shadow-2xl hover:scale-110 transition-transform"
       >
         <Phone className="w-8 h-8" strokeWidth={2.5} />

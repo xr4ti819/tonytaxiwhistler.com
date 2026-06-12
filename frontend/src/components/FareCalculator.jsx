@@ -225,9 +225,19 @@ export default function FareCalculator() {
                   <div className="h-px bg-white/5 my-2" />
                   <Row label="Total" value={`$${result.estimate}`} bold />
                 </div>
+                {pax >= 2 && (
+                  <div className="mt-3 p-3 rounded-xl bg-emerald-500/10 border border-emerald-400/20">
+                    <div className="text-[10px] uppercase tracking-wider text-emerald-300 mb-1">Group split</div>
+                    <div className="text-sm text-white">
+                      <span className="tabular-nums font-bold text-emerald-300">${(result.estimate / pax).toFixed(2)}</span>
+                      <span className="text-white/60"> per person · {pax} riders</span>
+                    </div>
+                  </div>
+                )}
                 <a
                   href={PHONE_TEL} data-testid="fare-book-call"
-                  className="mt-5 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-gold text-gold hover:bg-gold hover:text-black font-medium transition-colors"
+                  className="mt-3 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-gold text-gold hover:bg-gold hover:text-black font-medium transition-colors"
+                  onClick={() => navigator.vibrate && navigator.vibrate(30)}
                 >
                   Lock in this ride <ArrowRight className="w-4 h-4" />
                 </a>
