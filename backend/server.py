@@ -228,7 +228,7 @@ async def get_loyalty(phone: str):
     norm = "".join(c for c in phone if c.isdigit())
     bookings = await db.bookings.find(
         {"phone": {"$regex": norm[-7:]}, "status": {"$in": ["confirmed", "completed"]}},
-        {"_id": 0}
+        {"_id": 0, "service_type": 1, "estimated_fare": 1}
     ).to_list(500)
     total = len(bookings)
     airport = sum(1 for b in bookings if b.get("service_type") == "airport")
