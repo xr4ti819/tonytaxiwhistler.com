@@ -24,6 +24,7 @@ import TriviaCard from "@/components/TriviaCard";
 import Concierge from "@/components/Concierge";
 import AirportHypnotic from "@/components/AirportHypnotic";
 import Shops from "@/components/Shops";
+import LiquorStores from "@/components/LiquorStores";
 import InstallBanner from "@/components/InstallBanner";
 import SeoRoute from "@/pages/SeoRoute";
 
@@ -75,6 +76,7 @@ function Home() {
         <Dining />
         <CommunityRec />
         <Shops />
+        <LiquorStores />
         <Nightlife />
         <Testimonials />
         <Events />

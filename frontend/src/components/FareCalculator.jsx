@@ -211,7 +211,7 @@ export default function FareCalculator() {
               <div className="bg-surface2 rounded-2xl p-6 flex flex-col justify-between">
                 <div className="space-y-2.5 text-sm">
                   <Row label="Distance" value={`${result.distance_km} km`} />
-                  <Row label="Drive time" value={`~${result.duration_min} min`} />
+                  <Row label="Drive time" value={`${Math.floor(result.duration_min / 60)}h ${result.duration_min % 60}m`} />
                   <Row label="Base route" value={`$${result.breakdown.base_route}`} />
                   {result.breakdown.passenger_surcharge > 0 && (
                     <Row label="Van surcharge" value={`+$${result.breakdown.passenger_surcharge}`} highlight />
