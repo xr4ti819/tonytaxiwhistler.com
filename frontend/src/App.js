@@ -25,6 +25,7 @@ import Concierge from "@/components/Concierge";
 import AirportHypnotic from "@/components/AirportHypnotic";
 import Shops from "@/components/Shops";
 import InstallBanner from "@/components/InstallBanner";
+import SeoRoute from "@/pages/SeoRoute";
 
 function useAutoRefresh(minutes = 15) {
   React.useEffect(() => {
@@ -96,6 +97,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/:slug" element={<SeoRoute />} />
       </Routes>
     </BrowserRouter>
   );

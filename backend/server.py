@@ -113,9 +113,16 @@ RATE_MATRIX = {
     ("pemberton", "whistler"): (35, 30, 99),
     ("whistler", "bc-place"): (125, 130, 349),
     ("bc-place", "whistler"): (125, 130, 349),
-    ("whistler", "creekside"): (8, 10, 25),
-    ("creekside", "whistler"): (8, 10, 25),
-    ("village", "blackcomb"): (3, 5, 20),
+    # Whistler ↔ Whistler-area sub-locations (Creekside, Blackcomb Base, etc.)
+    ("whistler", "whistler"): (5, 8, 25),
+}
+
+
+# All Whistler-area pickup options normalize to "whistler" so flat rates apply
+WHISTLER_AREA = {
+    "whistler", "whistler-village", "whistler-creekside", "creekside",
+    "blackcomb", "blackcomb-base", "fairmont-chateau", "fairmont",
+    "pan-pacific-whistler", "pan-pacific", "four-seasons-whistler", "four-seasons",
 }
 
 
@@ -127,8 +134,20 @@ def normalize_loc(s: str) -> str:
         "vancouver international airport": "yvr",
         "whistler village": "whistler",
         "downtown vancouver": "vancouver",
+        "vancouver downtown": "vancouver",
         "bc place stadium": "bc-place",
+        "bc place": "bc-place",
         "fifa": "bc-place",
+        "whistler creekside": "whistler",
+        "creekside": "whistler",
+        "blackcomb base": "whistler",
+        "blackcomb": "whistler",
+        "fairmont chateau": "whistler",
+        "fairmont chateau whistler": "whistler",
+        "pan pacific whistler": "whistler",
+        "pan pacific": "whistler",
+        "four seasons whistler": "whistler",
+        "four seasons": "whistler",
     }
     return aliases.get(s, s.replace(" ", "-"))
 
@@ -146,18 +165,29 @@ async def fare_estimate(req: FareRequest):
     if key in RATE_MATRIX:
         km, mins, flat = RATE_MATRIX[key]
     else:
-        # Fallback: $2.80/km + $5 base
+        # Fallback: $2.80/km + $5 base, min $20
         km = max(10, len(req.pickup) + len(req.dropoff))
         mins = int(km * 1.0)
-        flat = round(km * 2.80 + 5, 2)
-    # Surcharge for 5+ passengers (van)
+        flat = round(max(20, km * 2.80 + 5), 2)
+
+    # Van surcharge: 5+ passengers
     surcharge = 40 if req.passengers >= 5 else 0
-    night_surcharge = 0
-    fifa_surcharge = 50 if req.service_type == "fifa" else 0
-    designated_premium = 60 if req.service_type == "designated" else 0  # second driver fee
-    total = flat + surcharge + night_surcharge + fifa_surcharge + designated_premium
+
+    # FIFA premium: only if route actually involves BC Place
+    fifa_surcharge = 50 if (req.service_type == "fifa" and ("bc-place" in (p, d))) else 0
+
+    # Designated driver premium + $89 minimum total
+    designated_premium = 60 if req.service_type == "designated" else 0
+
+    total = flat + surcharge + fifa_surcharge + designated_premium
+
+    # DD minimum
+    if req.service_type == "designated" and total < 89:
+        designated_premium += (89 - total)
+        total = 89
+
     return FareResponse(
-        estimate=total,
+        estimate=round(total, 2),
         distance_km=km,
         duration_min=mins,
         breakdown={

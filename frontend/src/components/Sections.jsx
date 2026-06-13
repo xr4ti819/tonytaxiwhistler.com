@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import confetti from "canvas-confetti";
 import { Phone, Trophy, Plane, Moon, Mountain, Star, Check, Award, Quote, ShieldCheck } from "lucide-react";
@@ -71,35 +72,59 @@ export function FIFASection() {
             return (
               <div
                 key={m.date} data-testid={`fifa-match-${m.date}`}
-                className="bg-surface border border-white/5 rounded-2xl p-6 hover:border-gold/30 transition-all relative overflow-hidden"
+                className="bg-surface border border-white/5 rounded-2xl overflow-hidden hover:border-gold/30 transition-all relative"
                 style={{ borderLeftWidth: "3px", borderLeftColor: m.accent }}
               >
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <div className="text-xs uppercase tracking-[0.3em] mb-2" style={{ color: m.accent }}>{m.date}</div>
-                    <h3 className="font-serif text-2xl font-bold mb-2">{m.label}</h3>
-                    <p className="text-sm text-white/60">Kickoff {m.kickoff} · Pickup 2.5 hrs before</p>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <div className="font-serif text-3xl font-black tabular-nums" style={{ color: m.accent }}>{days}</div>
-                    <div className="text-[9px] uppercase tracking-widest text-white/40">days</div>
+                <div className="relative h-36 overflow-hidden">
+                  <img src={m.img} alt={m.label} loading="lazy" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent" />
+                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur text-[10px] uppercase tracking-wider font-bold" style={{ color: m.accent }}>{m.date}</span>
+                  <div className="absolute top-3 right-3 text-right">
+                    <div className="font-serif text-2xl font-black tabular-nums leading-none" style={{ color: m.accent }}>{days}</div>
+                    <div className="text-[9px] uppercase tracking-widest text-white/70">days</div>
                   </div>
                 </div>
-                <a href={PHONE_TEL} className="mt-4 inline-flex items-center gap-2 text-gold text-sm font-medium hover:underline" data-testid={`fifa-book-${m.date}`}>
-                  Reserve this match-day <Phone className="w-3.5 h-3.5" />
-                </a>
+                <div className="p-5">
+                  <h3 className="font-serif text-xl font-bold mb-2">{m.label}</h3>
+                  <p className="text-sm text-white/60">Kickoff {m.kickoff} · Pickup 2.5 hrs before</p>
+                  <a href={PHONE_TEL} className="mt-3 inline-flex items-center gap-2 text-gold text-sm font-medium hover:underline" data-testid={`fifa-book-${m.date}`}>
+                    Reserve this match-day <Phone className="w-3.5 h-3.5" />
+                  </a>
+                </div>
               </div>
             );
           })}
         </div>
 
-        <div className="mt-10 bg-gradient-to-br from-fifa/15 to-transparent border border-fifa/30 rounded-2xl p-8 text-center">
-          <div className="text-xs uppercase tracking-[0.3em] text-fifa mb-2">FIFA Fan Zone Shuttle</div>
-          <h3 className="font-serif text-3xl font-bold mb-3">Robson Square · Free outdoor viewing</h3>
-          <p className="text-white/70 mb-5 max-w-2xl mx-auto">Big screens, food trucks, live music. Group of 4 = $87 each round trip from Whistler. Bus doesn&apos;t go there. We do.</p>
-          <a href={PHONE_TEL} data-testid="fifa-fanzone-cta" className="inline-flex items-center gap-2 px-6 py-3 rounded-full gold-foil font-semibold hover:scale-105 transition-transform">
-            <Phone className="w-4 h-4" /> Book Fan Zone Run
-          </a>
+        <div className="mt-10 bg-gradient-to-br from-fifa/15 to-transparent border border-fifa/30 rounded-2xl overflow-hidden">
+          <div className="relative h-56 sm:h-64 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=1600&q=80"
+              alt="Robson Square FIFA 2026 free outdoor viewing party — fans cheering at large screen"
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent" />
+            <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur text-[10px] uppercase tracking-[0.3em] text-fifa font-bold">FIFA Fan Zone Shuttle</span>
+            <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-3">
+              <div>
+                <div className="text-[10px] uppercase tracking-widest text-white/70">Downtown Vancouver</div>
+                <div className="font-serif text-2xl sm:text-3xl font-black text-white drop-shadow-lg">Robson Square · Free Viewing</div>
+              </div>
+              <div className="hidden sm:block text-right">
+                <div className="text-[10px] uppercase tracking-widest text-white/70">Group of 4</div>
+                <div className="font-serif text-2xl font-black text-fifa tabular-nums">$87<span className="text-sm text-white/60"> /ea</span></div>
+              </div>
+            </div>
+          </div>
+          <div className="p-7 sm:p-8 text-center">
+            <p className="text-white/75 mb-5 max-w-2xl mx-auto leading-relaxed">
+              Big screens. Food trucks. Live music. The official FIFA 2026 outdoor watch party in the heart of Downtown Vancouver. Group of 4 = <span className="text-fifa font-semibold">$87 each round-trip</span> from Whistler. The bus doesn&apos;t go there. We do.
+            </p>
+            <a href={PHONE_TEL} data-testid="fifa-fanzone-cta" className="inline-flex items-center gap-2 px-6 py-3 rounded-full gold-foil font-semibold hover:scale-105 transition-transform">
+              <Phone className="w-4 h-4" /> Book Fan Zone Run
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -515,10 +540,19 @@ export function FAQSection() {
   );
 }
 
+const SEO_ROUTES = [
+  { slug: "yvr-airport-taxi-whistler", label: "YVR Airport ↔ Whistler · $299" },
+  { slug: "vancouver-to-whistler-taxi", label: "Vancouver ↔ Whistler · $279" },
+  { slug: "bc-place-fifa-2026", label: "BC Place FIFA 2026 · $349" },
+  { slug: "squamish-to-whistler-taxi", label: "Squamish ↔ Whistler · $149" },
+  { slug: "pemberton-taxi", label: "Pemberton ↔ Whistler · $99" },
+  { slug: "whistler-designated-driver", label: "Designated Driver · from $89" },
+];
+
 export function Footer() {
   return (
     <footer className="border-t border-white/5 py-12 px-5" data-testid="site-footer">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
         <div>
           <div className="flex items-center gap-2 mb-3">
             <div className="w-9 h-9 rounded-lg gold-foil flex items-center justify-center font-serif text-lg font-black">T</div>
@@ -532,9 +566,26 @@ export function Footer() {
 
         <div>
           <div className="text-xs uppercase tracking-wider text-white/40 mb-3">Reach Us</div>
-          <a href={PHONE_TEL} className="block font-serif text-2xl font-bold gold-gradient-text mb-2">{PHONE}</a>
+          <a href={PHONE_TEL} className="block font-serif text-2xl font-bold gold-gradient-text mb-2" data-testid="footer-call">{PHONE}</a>
           <a href="mailto:tonytaxiwhistler@gmail.com" className="text-sm text-white/70 hover:text-gold">tonytaxiwhistler@gmail.com</a>
           <p className="text-xs text-white/40 mt-3">Whistler, BC, Canada</p>
+        </div>
+
+        <div>
+          <div className="text-xs uppercase tracking-wider text-white/40 mb-3">Popular Routes</div>
+          <ul className="space-y-1.5">
+            {SEO_ROUTES.map((r) => (
+              <li key={r.slug}>
+                <Link
+                  to={`/${r.slug}`}
+                  data-testid={`footer-route-${r.slug}`}
+                  className="text-sm text-white/70 hover:text-gold transition-colors"
+                >
+                  {r.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div>
@@ -544,7 +595,9 @@ export function Footer() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto mt-10 pt-6 border-t border-white/5 text-xs text-white/40 text-center">
-        © 2026 Tony Taxi Whistler. All rights reserved.
+        © 2026 Tony Taxi Whistler. All rights reserved. ·{" "}
+        <a href="/sitemap.xml" className="hover:text-gold">Sitemap</a> ·{" "}
+        <a href="/robots.txt" className="hover:text-gold">Robots</a>
       </div>
     </footer>
   );

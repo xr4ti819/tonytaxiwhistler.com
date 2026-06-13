@@ -25,6 +25,22 @@ export default function BookingForm() {
   });
   const [status, setStatus] = useState({ loading: false, success: null, error: null });
 
+  // Listen for "Apply to Booking" event from FareCalculator
+  React.useEffect(() => {
+    const onPrefill = (e) => {
+      const d = e.detail || {};
+      setForm((f) => ({
+        ...f,
+        pickup: d.pickup ?? f.pickup,
+        dropoff: d.dropoff ?? f.dropoff,
+        passengers: d.passengers ?? f.passengers,
+        service_type: d.service_type ?? f.service_type,
+      }));
+    };
+    window.addEventListener("tony:prefill-booking", onPrefill);
+    return () => window.removeEventListener("tony:prefill-booking", onPrefill);
+  }, []);
+
   const update = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
   const submit = async (e) => {

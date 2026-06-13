@@ -1,13 +1,48 @@
 {
   "short_name": "Tony Taxi",
-  "name": "Tony Taxi Whistler — 24/7 Private Rides",
+  "name": "Tony Taxi Whistler — 24/7 Private Rides · YVR · FIFA 2026",
+  "description": "24/7 private rides in Whistler BC. YVR airport transfers $299 flat, FIFA 2026 BC Place runs, designated driver (we drive you AND your car), activities, trailheads & safe nightlife rides.",
   "icons": [
     { "src": "favicon.ico", "sizes": "64x64 32x32 24x24 16x16", "type": "image/x-icon" }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "theme_color": "#D4AF37",
   "background_color": "#0A0A0A",
-  "description": "24/7 private rides, YVR airport transfers, FIFA 2026 BC Place runs, activities, trailheads & safe nightlife rides in Whistler, BC.",
-  "categories": ["travel", "transportation"]
+  "lang": "en-CA",
+  "dir": "ltr",
+  "categories": ["travel", "transportation", "lifestyle", "sports", "business"],
+  "shortcuts": [
+    {
+      "name": "Call Tony Taxi",
+      "short_name": "Call",
+      "description": "Call 778-917-3030 directly",
+      "url": "/?utm_source=pwa_shortcut_call#call",
+      "icons": [{ "src": "favicon.ico", "sizes": "64x64" }]
+    },
+    {
+      "name": "Instant Quote",
+      "short_name": "Quote",
+      "description": "Get an instant fare estimate",
+      "url": "/?utm_source=pwa_shortcut#fare",
+      "icons": [{ "src": "favicon.ico", "sizes": "64x64" }]
+    },
+    {
+      "name": "Book a Ride",
+      "short_name": "Book",
+      "description": "Book online in 60 seconds",
+      "url": "/?utm_source=pwa_shortcut#book",
+      "icons": [{ "src": "favicon.ico", "sizes": "64x64" }]
+    },
+    {
+      "name": "FIFA 2026",
+      "short_name": "FIFA",
+      "description": "Whistler ↔ BC Place runs",
+      "url": "/bc-place-fifa-2026",
+      "icons": [{ "src": "favicon.ico", "sizes": "64x64" }]
+    }
+  ],
+  "prefer_related_applications": false
 }

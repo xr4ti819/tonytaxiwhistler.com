@@ -241,6 +241,26 @@ export default function FareCalculator() {
                 >
                   Lock in this ride <ArrowRight className="w-4 h-4" />
                 </a>
+                <button
+                  type="button"
+                  data-testid="fare-apply-to-booking"
+                  onClick={() => {
+                    window.dispatchEvent(
+                      new CustomEvent("tony:prefill-booking", {
+                        detail: {
+                          pickup, dropoff,
+                          passengers: Number(pax),
+                          service_type: serviceType,
+                        },
+                      })
+                    );
+                    const el = document.getElementById("book");
+                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                  className="mt-2 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl gold-foil font-semibold hover:scale-[1.02] transition-transform shadow-lg shadow-gold/20"
+                >
+                  Apply to Booking <ArrowRight className="w-4 h-4" />
+                </button>
               </div>
             </div>
           )}

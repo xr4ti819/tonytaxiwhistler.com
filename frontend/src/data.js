@@ -4,10 +4,10 @@ export const PHONE_SMS = "sms:7789173030";
 export const WHATSAPP = "https://wa.me/17789173030";
 
 export const FIFA_MATCHES = [
-  { date: "Jun 13, 2026", label: "Group Stage · Match 1", kickoff: "6:30 PM", accent: "#FF6B35" },
-  { date: "Jun 18, 2026", label: "Group Stage · Match 2", kickoff: "5:30 PM", accent: "#D4AF37" },
-  { date: "Jun 30, 2026", label: "Round of 16", kickoff: "4:30 PM", accent: "#D93838" },
-  { date: "Jul 4, 2026", label: "Quarter Final · if Canada advances", kickoff: "5:30 PM", accent: "#4CAF50" },
+  { date: "Jun 13, 2026", label: "Group Stage · Match 1", kickoff: "6:30 PM", accent: "#FF6B35", img: "https://images.unsplash.com/photo-1629217855633-79a6925d6c47?w=800&q=80" },
+  { date: "Jun 18, 2026", label: "Group Stage · Match 2", kickoff: "5:30 PM", accent: "#D4AF37", img: "https://images.unsplash.com/photo-1705593973313-75de7bf95b56?w=800&q=80" },
+  { date: "Jun 30, 2026", label: "Round of 16", kickoff: "4:30 PM", accent: "#D93838", img: "https://images.unsplash.com/photo-1706675780107-7c43cc487928?w=800&q=80" },
+  { date: "Jul 4, 2026", label: "Quarter Final · if Canada advances", kickoff: "5:30 PM", accent: "#4CAF50", img: "https://images.unsplash.com/photo-1665413813194-3b80d79b6421?w=800&q=80" },
 ];
 
 export const LAKES_RIVERS = [
