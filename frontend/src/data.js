@@ -30,6 +30,8 @@ export const SERVICES = [
 ];
 
 export const ACTIVITIES = [
+  { name: "Bear & Wildlife Tour · Half Day", price: "$250 flat · 5 hrs · up to 4", badge: "Local Guide", img: "https://images.unsplash.com/photo-1648265139146-7a8c5ea3acef?w=800&q=80", shuttle: "All-in", category: "Wildlife" },
+  { name: "Bear & Wildlife Tour · Full Day", price: "$500 flat · 11 hrs · up to 4", badge: "Bucket List", img: "https://images.unsplash.com/photo-1610393882555-b6dc1734f97d?w=800&q=80", shuttle: "All-in", category: "Wildlife" },
   { name: "Helicopter Glacier Tours", price: "$399/pp", badge: "Bucket List", img: "https://images.unsplash.com/photo-1764191616930-01ad017f4fdf?w=800&q=80", shuttle: "$55", category: "Adventure" },
   { name: "ATV Mountain Tours", price: "$189/pp", badge: "Adventure", img: "https://images.unsplash.com/photo-1769272260986-6af5820c545e?w=800&q=80", shuttle: "$45", category: "Adventure" },
   { name: "Whistler Bungee Jumping", price: "$149/jump", badge: "Adrenaline", img: "https://images.unsplash.com/photo-1559677624-3c956f10d431?w=800&q=80", shuttle: "$45", category: "Adventure" },

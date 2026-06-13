@@ -54,16 +54,16 @@ export default function DailyBread() {
       data-testid="daily-bread-banner"
       className="w-full bg-gradient-to-r from-gold/15 via-gold/5 to-gold/15 border-b border-gold/20 relative z-[71]"
     >
-      <div className={`max-w-7xl mx-auto px-5 py-2.5 flex items-center gap-3 transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}>
-        <div className="hidden sm:flex items-center gap-1.5 text-[9px] uppercase tracking-[0.3em] text-gold font-bold shrink-0">
-          <BookOpen className="w-3 h-3" /> Daily Bread
+      <div className={`max-w-7xl mx-auto px-5 py-3 flex items-center gap-3 transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}>
+        <div className="hidden sm:flex items-center gap-1.5 text-[10px] uppercase tracking-[0.3em] text-gold font-bold shrink-0">
+          <BookOpen className="w-3.5 h-3.5" /> Daily Bread
         </div>
-        <BookOpen className="sm:hidden w-3.5 h-3.5 text-gold shrink-0" />
-        <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center gap-x-3">
-          <p className="font-serif text-xs sm:text-sm italic text-white/90 truncate sm:truncate-none leading-snug">
+        <BookOpen className="sm:hidden w-4 h-4 text-gold shrink-0" />
+        <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center gap-x-3 gap-y-1">
+          <p className="font-serif text-sm sm:text-base italic text-white leading-snug">
             &ldquo;{v.text}&rdquo;
           </p>
-          <span className="text-[10px] uppercase tracking-widest text-gold/70 shrink-0 whitespace-nowrap" data-testid="daily-bread-ref">— {v.ref}</span>
+          <span className="text-[11px] uppercase tracking-widest text-gold shrink-0 whitespace-nowrap font-semibold" data-testid="daily-bread-ref">— {v.ref}</span>
         </div>
         <button
           onClick={close}

@@ -22,6 +22,7 @@ import LakesRivers from "@/components/LakesRivers";
 import LiveTicker from "@/components/LiveTicker";
 import TriviaCard from "@/components/TriviaCard";
 import Concierge from "@/components/Concierge";
+import AirportHypnotic from "@/components/AirportHypnotic";
 
 function useAutoRefresh(minutes = 15) {
   React.useEffect(() => {
@@ -56,6 +57,7 @@ function Home() {
       <main>
         <Hero />
         <Loyalty />
+        <AirportHypnotic />
         <LiveConditions />
         <Services />
         <DesignatedDriver />
