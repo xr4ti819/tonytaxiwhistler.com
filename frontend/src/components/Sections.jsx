@@ -594,10 +594,15 @@ export function Footer() {
           <p className="text-xs text-white/40">Wheelchair · Pets · Car seats · Skis · Bikes — all welcome, all free.</p>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto mt-10 pt-6 border-t border-white/5 text-xs text-white/40 text-center">
-        © 2026 Tony Taxi Whistler. All rights reserved. ·{" "}
-        <a href="/sitemap.xml" className="hover:text-gold">Sitemap</a> ·{" "}
-        <a href="/robots.txt" className="hover:text-gold">Robots</a>
+      <div className="max-w-7xl mx-auto mt-10 pt-6 border-t border-white/5 text-center space-y-2">
+        <p className="text-xs text-gold/80 italic tracking-wide" data-testid="footer-faith-tagline">
+          ✝ Viewed through the lens of Jesus Christ our Savior · <span className="text-white/50">Soli Deo Gloria</span>
+        </p>
+        <p className="text-xs text-white/40">
+          © 2026 Tony Taxi Whistler. All rights reserved. ·{" "}
+          <a href="/sitemap.xml" className="hover:text-gold">Sitemap</a> ·{" "}
+          <a href="/robots.txt" className="hover:text-gold">Robots</a>
+        </p>
       </div>
     </footer>
   );
