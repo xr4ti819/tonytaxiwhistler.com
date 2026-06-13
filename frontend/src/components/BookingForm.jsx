@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Loader2, Check, Send } from "lucide-react";
+import { Loader2, Check, Send, MessageCircle } from "lucide-react";
 import { PICKUP_OPTIONS } from "@/data";
+import { whatsappUrlForTrip } from "@/lib/whatsapp";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -175,6 +176,22 @@ export default function BookingForm() {
             {status.loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
             {status.loading ? "Sending..." : "Reserve My Ride"}
           </button>
+
+          <a
+            href={whatsappUrlForTrip({
+              pickup: form.pickup,
+              dropoff: form.dropoff,
+              passengers: form.passengers,
+              service: form.service_type,
+              when: `${form.pickup_date} ${form.pickup_time}`,
+            })}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="booking-whatsapp"
+            className="w-full inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl bg-whatsapp text-white font-semibold hover:scale-[1.01] transition-transform shadow-lg shadow-emerald-500/20"
+          >
+            <MessageCircle className="w-4 h-4" /> Send by WhatsApp instead
+          </a>
 
           <p className="text-center text-xs text-white/40">
             By booking, you agree to free cancellation up to 2 hours before pickup.

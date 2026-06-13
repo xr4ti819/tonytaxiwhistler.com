@@ -1,12 +1,13 @@
 import React from "react";
 import { Phone, MessageCircle, MessageSquare } from "lucide-react";
-import { PHONE_TEL, PHONE_SMS, WHATSAPP } from "@/data";
+import { PHONE_TEL, PHONE_SMS } from "@/data";
+import { whatsappUrlDefault } from "@/lib/whatsapp";
 
 export default function FloatingCTAs() {
   return (
     <div className="hidden lg:flex fixed right-4 bottom-4 z-[80] flex-col gap-3 items-end pointer-events-none" data-testid="floating-ctas">
       <a
-        href={WHATSAPP}
+        href={whatsappUrlDefault()}
         target="_blank"
         rel="noreferrer"
         data-testid="whatsapp-fab"

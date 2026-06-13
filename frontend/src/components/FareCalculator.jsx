@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import axios from "axios";
-import { Calculator, ArrowRight, MapPin, Users, Loader2, RefreshCw, ArrowLeftRight, Sparkles } from "lucide-react";
+import { Calculator, ArrowRight, MapPin, Users, Loader2, RefreshCw, ArrowLeftRight, Sparkles, MessageCircle } from "lucide-react";
 import { PICKUP_OPTIONS, PHONE_TEL } from "@/data";
+import { whatsappUrlForTrip } from "@/lib/whatsapp";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 const REFRESH_MS = 15 * 60 * 1000; // 15 min
@@ -240,6 +241,20 @@ export default function FareCalculator() {
                   onClick={() => navigator.vibrate && navigator.vibrate(30)}
                 >
                   Lock in this ride <ArrowRight className="w-4 h-4" />
+                </a>
+                <a
+                  href={whatsappUrlForTrip({
+                    pickup, dropoff,
+                    passengers: Number(pax),
+                    service: serviceType,
+                    estimate: result.estimate,
+                  })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="fare-whatsapp-quote"
+                  className="mt-2 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-whatsapp text-white font-semibold hover:scale-[1.02] transition-transform shadow-lg shadow-emerald-500/20"
+                >
+                  <MessageCircle className="w-4 h-4" /> WhatsApp this quote
                 </a>
                 <button
                   type="button"
