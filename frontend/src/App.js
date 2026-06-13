@@ -24,6 +24,7 @@ import TriviaCard from "@/components/TriviaCard";
 import Concierge from "@/components/Concierge";
 import AirportHypnotic from "@/components/AirportHypnotic";
 import Shops from "@/components/Shops";
+import InstallBanner from "@/components/InstallBanner";
 
 function useAutoRefresh(minutes = 15) {
   React.useEffect(() => {
@@ -85,6 +86,7 @@ function Home() {
       <MobileActionBar />
       <MusicWidget />
       <Concierge />
+      <InstallBanner />
     </div>
   );
 }
