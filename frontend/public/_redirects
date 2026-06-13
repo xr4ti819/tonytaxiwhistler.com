@@ -1,0 +1,3 @@
+# Netlify SPA fallback — every unmatched route serves index.html
+# so React Router can handle /yvr-airport-taxi-whistler, /bc-place-fifa-2026, etc.
+/*    /index.html   200
