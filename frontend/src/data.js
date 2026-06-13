@@ -44,6 +44,11 @@ export const ACTIVITIES = [
   { name: "Via Ferrata", price: "$199/pp", badge: "Iron Way", img: "https://images.unsplash.com/photo-1630353958888-5eeec80b5806?w=800&q=80", shuttle: "$45", category: "Adventure" },
   { name: "Horseback Riding · Pemberton", price: "$95/hr", badge: "Family", img: "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800&q=80", shuttle: "$55", category: "Family" },
   { name: "Jet Skis · Alta Lake", price: "$139/hr", badge: "Summer", img: "https://images.unsplash.com/photo-1554132267-d06483b00adc?w=800&q=80", shuttle: "$25", category: "Summer" },
+  { name: "Whistler Olympic Park · Nordic", price: "from $25 trail pass", badge: "2010 Olympic Venue", img: "https://images.unsplash.com/photo-1551524559-8af4e6624178?w=800&q=80", shuttle: "$55", category: "Nordic" },
+  { name: "Snowshoeing · Lost Lake", price: "$35 rental", badge: "Family Friendly", img: "https://images.unsplash.com/photo-1486848538113-ce1a4923fbc5?w=800&q=80", shuttle: "$25", category: "Winter" },
+  { name: "Dog Sledding · Callaghan", price: "$189/adult", badge: "Iconic Winter", img: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&q=80", shuttle: "$55", category: "Winter" },
+  { name: "Snowmobile Tours", price: "$199/2-hr", badge: "Backcountry", img: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&q=80", shuttle: "$55", category: "Winter" },
+  { name: "Ziplining · Ziptrek Ecotours", price: "$169/adult", badge: "All Year", img: "https://images.unsplash.com/photo-1599582892619-fde60c9a72d3?w=800&q=80", shuttle: "$25", category: "Adventure" },
 ];
 
 export const TRAILS = [
@@ -82,6 +87,24 @@ export const COMMUNITY_SERVICES = [
     img: "https://images.unsplash.com/photo-1438032005730-c779502df39b?w=800&q=80",
   },
   {
+    name: "Squamish Lil'wat Cultural Centre (SLCC)",
+    desc: "Indigenous-owned cultural centre · Hand-carved canoes · Stunning architecture · Guided tours daily 10AM–5PM · Café & gift shop.",
+    address: "4584 Blackcomb Way, Whistler",
+    link: "https://slcc.ca/",
+    shuttle: "$20",
+    tag: "Indigenous Culture",
+    img: "https://images.unsplash.com/photo-1568667256549-094345857637?w=800&q=80",
+  },
+  {
+    name: "Whistler Animals Galore (WAG)",
+    desc: "Volunteer-run animal shelter · Dog & cat adoptions · Foster program · Pet supplies · Open 12–4PM Tues–Sun.",
+    address: "8000 Nesters Rd, Whistler",
+    link: "https://wagwhistler.com/",
+    shuttle: "Free for volunteers",
+    tag: "Animal Rescue",
+    img: "https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=800&q=80",
+  },
+  {
     name: "Meadow Park Sports Centre",
     desc: "25m pool, hot tub, sauna, ice rink, gym, squash, fitness classes. The Whistler local's gym.",
     address: "8625 Hwy 99, Whistler",
@@ -116,6 +139,45 @@ export const COMMUNITY_SERVICES = [
     shuttle: "Priority dispatch",
     tag: "Medical",
     img: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&q=80",
+  },
+  {
+    name: "Audain Art Museum",
+    desc: "World-class private art collection · BC coastal & Indigenous art · Emily Carr works · Free 1st Thursdays for residents.",
+    address: "4350 Blackcomb Way, Whistler",
+    link: "https://audainartmuseum.com/",
+    shuttle: "$15",
+    tag: "Art",
+    img: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80",
+  },
+];
+
+export const SHOPS = [
+  {
+    name: "BC Cannabis Store · Whistler",
+    desc: "Government-regulated dispensary · Full menu · ID required (19+) · Knowledgeable budtenders.",
+    daily: "Mon: 15% off pre-rolls · Tue: 2-for-1 edibles · Wed: vape day · Thu: tincture Thursday · Fri: flower Friday · Sat: shatter & sauce · Sun: senior 10% off",
+    img: "https://images.unsplash.com/photo-1603909223429-69bb7101f420?w=800&q=80",
+    tag: "Cannabis",
+    hours: "10AM–11PM",
+    shuttle: "$15",
+  },
+  {
+    name: "Garibaldi Cannabis Co.",
+    desc: "Whistler's first private cannabis retailer · Curated craft selection · Pre-rolls, flower, vapes, edibles.",
+    daily: "Weekly: $5 off first-time buyer · Locals' card 10% every visit · Happy Hour 4–6 PM daily (15% off)",
+    img: "https://images.unsplash.com/photo-1603909223358-29bf5e4ec92a?w=800&q=80",
+    tag: "Cannabis",
+    hours: "9AM–11PM",
+    shuttle: "$15",
+  },
+  {
+    name: "Vape Whistler",
+    desc: "Premium vape lounge · E-liquids · Mods · CBD vapes · Knowledgeable staff (19+ only).",
+    daily: "Buy 2 bottles get 1 free · Tuesday mod-day 20% off · Locals 10% off ID required",
+    img: "https://images.unsplash.com/photo-1602900213056-c4ba1c7eb53b?w=800&q=80",
+    tag: "Vape Lounge",
+    hours: "11AM–10PM",
+    shuttle: "$15",
   },
 ];
 

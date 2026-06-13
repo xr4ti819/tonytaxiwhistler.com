@@ -23,6 +23,7 @@ import LiveTicker from "@/components/LiveTicker";
 import TriviaCard from "@/components/TriviaCard";
 import Concierge from "@/components/Concierge";
 import AirportHypnotic from "@/components/AirportHypnotic";
+import Shops from "@/components/Shops";
 
 function useAutoRefresh(minutes = 15) {
   React.useEffect(() => {
@@ -71,6 +72,7 @@ function Home() {
         <TriviaCard />
         <Dining />
         <CommunityRec />
+        <Shops />
         <Nightlife />
         <Testimonials />
         <Events />

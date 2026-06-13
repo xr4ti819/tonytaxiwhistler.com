@@ -54,9 +54,10 @@ export function FIFASection() {
       <div className="absolute inset-0 bg-gradient-to-b from-fifa/5 via-transparent to-transparent pointer-events-none" />
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-12">
+          <div className="text-5xl mb-4" aria-hidden="true">⚽ 🏆 🏔️</div>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-fifa/10 border border-fifa/30 mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-fifa animate-pulse" />
-            <span className="text-xs uppercase tracking-[0.3em] text-fifa">Canada · Mexico · USA</span>
+            <span className="text-xs uppercase tracking-[0.3em] text-fifa">Canada 🇨🇦 · Mexico 🇲🇽 · USA 🇺🇸</span>
           </div>
           <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter mb-3">
             FIFA World Cup <span className="gold-gradient-text italic">2026.</span>
