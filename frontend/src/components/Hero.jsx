@@ -97,7 +97,7 @@ export default function Hero() {
                   { v: c.m, l: "MIN" },
                   { v: c.s, l: "SEC" },
                 ].map((x, i) => (
-                  <div key={i} className="text-center">
+                  <div key={x.l} className="text-center">
                     <div className="font-serif text-2xl sm:text-3xl font-black gold-gradient-text tabular-nums" data-testid={`countdown-${x.l.toLowerCase()}`}>
                       {String(x.v).padStart(2, "0")}
                     </div>

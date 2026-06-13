@@ -43,7 +43,7 @@ export default function DailyBread() {
   if (dismissed) return null;
 
   const close = () => {
-    try { sessionStorage.setItem("dailyBreadDismissed", "1"); } catch { /* noop */ }
+    try { sessionStorage.setItem("dailyBreadDismissed", "1"); } catch (err) { console.debug("[DailyBread] sessionStorage blocked", err?.name || err); }
     setDismissed(true);
   };
 

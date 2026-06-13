@@ -330,7 +330,9 @@ export function Loyalty() {
     try {
       const { data } = await axios.get(`${API}/loyalty/${encodeURIComponent(phone)}`);
       setData(data);
-    } catch { /* noop */ }
+    } catch (err) {
+      console.warn("[Loyalty] lookup failed", err);
+    }
     setLoading(false);
   };
 

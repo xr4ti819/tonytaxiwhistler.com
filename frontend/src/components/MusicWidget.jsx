@@ -20,7 +20,7 @@ export default function MusicWidget() {
       el.pause();
       setPlaying(false);
     } else {
-      try { await el.play(); setPlaying(true); } catch { /* autoplay block */ }
+      try { await el.play(); setPlaying(true); } catch (err) { console.debug("[MusicWidget] autoplay blocked", err?.name || err); }
     }
   };
 

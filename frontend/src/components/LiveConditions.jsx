@@ -41,8 +41,8 @@ export default function LiveConditions() {
       }
       setLastUpdate(new Date());
       setNextRefresh(REFRESH_MS / 1000);
-    } catch {
-      // silent — show fallback
+    } catch (err) {
+      console.warn("[LiveConditions] weather fetch failed", err?.message || err);
     } finally {
       setLoading(false);
     }

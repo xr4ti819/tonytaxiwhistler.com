@@ -46,7 +46,7 @@ export default function AirportHypnotic() {
             { k: "Picture", t: "yourself at the hotel in 90 quiet minutes — fresh, smiling, and ready for Whistler." },
             { k: "Remember", t: "you only travel like this once a trip. The smartest travellers book Tony before they fly." },
           ].map((b, i) => (
-            <div key={i} className="bg-surface/80 border border-gold/15 rounded-2xl p-5 backdrop-blur" data-testid={`airport-bullet-${i}`}>
+            <div key={b.k} className="bg-surface/80 border border-gold/15 rounded-2xl p-5 backdrop-blur" data-testid={`airport-bullet-${i}`}>
               <div className="text-[10px] uppercase tracking-[0.3em] text-gold font-bold mb-1.5 flex items-center gap-1">
                 <Sparkles className="w-3 h-3" /> {b.k}…
               </div>

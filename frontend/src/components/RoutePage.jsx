@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Phone, MessageCircle, Check, MapPin, Clock, Star, ArrowRight, Sparkles } from "lucide-react";
 import Header from "@/components/Header";
@@ -31,6 +31,12 @@ export default function RoutePage({
   intro,
 }) {
   const url = `https://tonytaxiwhistler.com/${slug}`;
+
+  // Memoize the "other routes" filter so it doesn't recompute on every render
+  const otherRoutes = useMemo(
+    () => OTHER_ROUTES.filter((r) => r.slug !== slug),
+    [slug]
+  );
 
   const jsonLd = [
     {
@@ -163,8 +169,8 @@ export default function RoutePage({
             <span className="italic gold-gradient-text">{pickup} → {dropoff}</span> run
           </h2>
           <div className="grid sm:grid-cols-2 gap-4">
-            {bullets.map((b, i) => (
-              <div key={i} className="flex gap-3 p-4 rounded-2xl border border-white/8 bg-surface2">
+            {bullets.map((b) => (
+              <div key={b.title} className="flex gap-3 p-4 rounded-2xl border border-white/8 bg-surface2">
                 <Check className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="font-semibold text-white">{b.title}</div>
@@ -191,7 +197,7 @@ export default function RoutePage({
             <div className="space-y-3">
               {faqs.map((f, i) => (
                 <details
-                  key={i}
+                  key={f.q}
                   className="group rounded-2xl border border-white/8 bg-surface2 p-5 open:border-gold/30"
                   data-testid={`route-faq-${i}`}
                 >
@@ -214,7 +220,7 @@ export default function RoutePage({
             Other popular Tony Taxi routes
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {OTHER_ROUTES.filter((r) => r.slug !== slug).map((r) => (
+            {otherRoutes.map((r) => (
               <Link
                 key={r.slug}
                 to={`/${r.slug}`}

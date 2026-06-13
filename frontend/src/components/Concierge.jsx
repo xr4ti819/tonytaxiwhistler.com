@@ -14,7 +14,7 @@ const SUGGESTIONS = [
 export default function Concierge() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: "assistant", text: "Hi! I'm Tony, your Whistler concierge. Ask me anything — restaurants, trails, FIFA, weather, road conditions." }
+    { id: "intro", role: "assistant", text: "Hi! I'm Tony, your Whistler concierge. Ask me anything — restaurants, trails, FIFA, weather, road conditions." }
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -28,14 +28,16 @@ export default function Concierge() {
   const send = async (text) => {
     const msg = (text ?? input).trim();
     if (!msg || loading) return;
-    setMessages((m) => [...m, { role: "user", text: msg }]);
+    const userId = `u-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+    setMessages((m) => [...m, { id: userId, role: "user", text: msg }]);
     setInput("");
     setLoading(true);
     try {
       const { data } = await axios.post(`${API}/concierge/chat`, { session_id: sessionId, message: msg });
-      setMessages((m) => [...m, { role: "assistant", text: data.reply }]);
-    } catch {
-      setMessages((m) => [...m, { role: "assistant", text: "Hmm, I can't reach my brain right now. Call 778-917-3030 — a real human will help." }]);
+      setMessages((m) => [...m, { id: `a-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, role: "assistant", text: data.reply }]);
+    } catch (err) {
+      console.warn("[Concierge] chat failed", err?.message || err);
+      setMessages((m) => [...m, { id: `e-${Date.now()}`, role: "assistant", text: "Hmm, I can't reach my brain right now. Call 778-917-3030 — a real human will help." }]);
     }
     setLoading(false);
   };
@@ -76,8 +78,8 @@ export default function Concierge() {
           </div>
 
           <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-3 text-sm">
-            {messages.map((m, i) => (
-              <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
+            {messages.map((m) => (
+              <div key={m.id} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
                 <div className={`max-w-[85%] rounded-2xl px-3.5 py-2 ${m.role === "user" ? "bg-gold/20 text-white" : "bg-surface2 text-white/90 border border-white/5"}`}>
                   {m.text}
                 </div>
