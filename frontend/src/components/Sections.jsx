@@ -4,7 +4,7 @@ import axios from "axios";
 import confetti from "canvas-confetti";
 import { Phone, Trophy, Plane, Moon, Mountain, Star, Check, Award, Quote, ShieldCheck } from "lucide-react";
 import { PHONE, PHONE_TEL, WHATSAPP, FIFA_MATCHES, SERVICES, ACTIVITIES, TRAILS, RESTAURANTS,
-  NIGHTLIFE, EVENTS_2026, EMERGENCY, FAQ
+  NIGHTLIFE, EVENTS_2026, EMERGENCY, FAQ, HAPPY_HOUR
 } from "@/data";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
